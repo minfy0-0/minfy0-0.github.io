@@ -64,7 +64,7 @@ ko: &DEFAULT_KO
 
   footer:
     social:
-      - url: https://github.com/minfy0-0-custom
+      - url: https://github.com/minfy0-0
         icon: "fab fa-github"
       - url: https://www.linkedin.com/in/%EB%AF%BC%EC%84%9C-%EA%B9%80-81625235a/
         icon: "fab fa-linkedin-in"
