@@ -48,6 +48,7 @@ ko: &DEFAULT_KO
       - title: "대학교"
         year: "2022 ~ 현재"
         desc: "생명공학·경영학 전공 · 유전체 데이터 분석 및 Bioinformatics 연구"
+#        image: assets/img/timeline/1.jpg
       - title: "AWS Training"
         year: "2025"
         desc: "AWS Cloud Practitioner 학습 · AI App 구축"
