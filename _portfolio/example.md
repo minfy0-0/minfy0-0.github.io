@@ -1,22 +1,127 @@
 ---
-caption: #what displays in the portfolio grid:
-  title: Example
-  subtitle: subtitle
-  thumbnail: https://place-hold.it/400x300
-  
-#what displays when the item is clicked:
-title: Title
-subtitle: subtitle lorem ipsum dolor sit amet consectetur.
-image: https://place-hold.it/400x300 #main image, can be a link or a file in assets/img/portfolio
-alt: image alt text
+caption:
+  title: Dr. Spot
+  subtitle: AI 기반 피부 병변 탐지·분류 웹 플랫폼
+  thumbnail: /assets/img/portfolio/drspot-thumb.png
+
+title: Dr. Spot
+subtitle: 비대면 환경에서 피부 병변 이미지를 분석하는 클라우드 네이티브 AI 솔루션
+image: /assets/img/portfolio/drspot-result.png
+alt: Dr. Spot Analysis Result
+---
+
+### 🏗️ System Architecture
+AWS 환경에서 고가용성과 확장성을 고려하여 설계된 **Scalable Web Architecture**입니다.
+
+![Architecture](/assets/img/portfolio/drspot-architecture.png)
+> **서비스 운영부터 모델 서빙까지 아우르는 Full-Stack ML 인프라**
+* **인프라 운영:** **AWS ECS(Fargate)**를 통한 컨테이너화된 웹 서비스 운영으로 트래픽 변화에 유연하게 대응
+* **AI 파이프라인:** **Amazon SageMaker**를 활용한 모델 엔드포인트 서빙 및  
+  **Amazon Bedrock(Claude 3.5 Sonnet)**의 **Knowledge Base 기능**을 활용하여  
+  검증된 의료 정보 문서에 한정된 케어 가이드 생성  
+  (Knowledge Base에 포함되지 않은 정보에 대해서는 의도적으로 응답을 제한)
+* **보안:** **AWS WAF**와 **ALB**를 전면에 배치하여 외부 위협 차단 및 안정적인 부하 분산 처리
 
 ---
-Use this area to describe your project. **Markdown** supported.
 
-optional info list (delete if not using):
+### 🔍 Problem
+피부 질환은 조기 진단이 중요하지만, 전문의 접근성 부족으로 골든타임을 놓치는 경우가 많습니다.  
+단순 연구용 모델이 아닌, **실제 서비스 환경에서 신뢰할 수 있는 안정적 진단 구조**를 구축하고자 했습니다.
 
-{:.list-inline} 
-- Date: 
-- Client: 
-- Category: 
+* **이미지 품질 편차:** 사용자 촬영 환경 차이로 인한 조도·초점·해상도 불균형
+* **데이터 누수(Leakage):** 중복 데이터로 인한 모델 성능 수치 과대평가 위험
+* **서비스 가용성:** 추론 과정 중 예외 발생 시 서비스가 중단될 우려
 
+---
+
+### 🎯 Key Decisions: 서비스 안정성을 위한 엔지니어링
+
+#### ▪ 계층적 분석 구조 (YOLOv8 + EfficientNet-B4)
+단일 모델의 한계를 극복하기 위해 탐지와 분류를 분리했습니다.
+* **Stage 1 (YOLOv8):** 이미지 내 병변 부위(ROI)를 탐지하여 배경 노이즈 제거
+* **Stage 2 (EfficientNet-B4):** 추출된 영역을 6종의 질환군으로 세부 분류
+
+#### ▪ 품질 검증 및 Fail-Safe 추론 설계
+* **이미지 전처리 선택 구조:**  
+  조도·휘도 보정 등 이미지 전처리 파이프라인을 적용할지 여부를  
+  사용자가 선택할 수 있도록 구성하여,  
+  원본 이미지와 전처리된 이미지 간 분석 결과 비교가 가능하도록 설계
+* **백업 경로:**  
+  탐지 모델(YOLO) 실패 시에도 분류 모델이 전체 이미지를 분석하도록 구성하여  
+  서비스 연속성 확보
+
+#### ▪ 데이터 무결성 확보 (Hash-based De-duplication)
+* 이미지 **해시(Hash)** 기반 중복 제거를 통해  
+  학습/검증/평가셋 간 데이터 누수를 원천 차단하여  
+  객관적인 성능 지표 확보
+
+---
+
+### 🚀 Challenges & Failures: 기술적 난제와 솔직한 성찰
+
+단순한 모델 구현을 넘어, 클라우드 환경에서 실시간 AI 서비스를 구축하며
+마주한 기술적 병목 현상을 다음과 같이 해결하고 분석했습니다.
+
+#### 1. SageMaker 엔드포인트 구성 및 추론 지연 문제
+* **Challenge:**  
+  초기에는 예산 제약을 고려하여 CPU 기반 엔드포인트로 구성했으나,  
+  추론 시간이 과도하게 소요되어 실사용이 어려운 문제가 발생
+* **Solution:**  
+  비용 구조를 재검토한 결과 GPU 인스턴스를 제한적으로 활용할 수 있음을 확인하고,  
+  엔드포인트 인스턴스 사양을 상향 조정하여 추론 지연 문제를 해결
+* **Insight:**  
+  모델 성능뿐 아니라 비용 대비 성능을 고려한 인프라 선택의 중요성을 체감
+
+#### 2. YOLOv8 출력 데이터 파싱 및 연동 오류
+* **Challenge:**  
+  YOLOv8의 Bounding Box 결과를 후속 분류 모델에 전달하는 과정에서  
+  텐서 차원 불일치 및 파싱 오류로 파이프라인이 중단되는 현상 발생
+* **Solution:**  
+  좌표 및 Confidence Score를 안정적으로 추출하는 커스텀 파싱 로직을 구현하고,  
+  병변이 탐지되지 않는 Empty Box 상황에 대한 예외 처리 추가
+* **Insight:**  
+  모델 간 데이터 정합성이 전체 시스템 안정성에 직접적인 영향을 미침을 확인
+
+#### 3. 일부 클래스(악성/색소성 병변) 간 혼동
+* **Challenge:**  
+  기저세포암(bcc)과 지루성 각화증(akiec) 등  
+  시각적으로 유사한 병변 간 높은 혼동 발생
+* **Limitation:**  
+  데이터 증강만으로는 임상적 유사성을 완전히 해소하는 데 한계 존재
+* **Analysis:**  
+  향후 환자 메타데이터를 결합한 멀티모달 학습의 필요성을 인지
+
+#### 4. 외부 데이터셋 기반 일반화 검증의 한계
+* **Challenge:**  
+  특정 오픈 데이터셋(ISIC)에 기반한 모델이  
+  실제 사용자 촬영 환경에서도 동일한 성능을 유지하는지 검증 필요
+* **Limitation:**  
+  프로젝트 기간 내 실사용 데이터 확보의 제약으로  
+  완전한 일반화 성능 검증에는 한계 존재
+* **Next Step:**  
+  서비스 운영 과정에서 사용자 데이터를 지속적으로 수집·재학습하는  
+  **MLOps 데이터 플라이휠 구조**의 중요성을 인식
+
+---
+
+### 📊 Results & Impact
+* **정량적 성과:**  
+  통합 파이프라인 기준 실험 환경에서  
+  **평균 정확도(Accuracy) 약 87%** 수준의 성능 확인
+* **사용자 경험:**  
+  이미지 업로드부터 최종 AI 분석 결과 및  
+  케어 가이드 생성까지 **약 2분 이내** 처리 흐름 구현
+* **기술적 성과:**  
+  MLOps 관점에서 모델 서빙과 서비스 운영을 고려한
+  AWS 기반 배포 구조를 설계하고,
+  모델 추론과 서비스 연동이 안정적으로 동작함을 검증
+
+---
+
+### 💡 What I Learned
+* 모델 성능 개선보다 **데이터 품질 관리와 실험 구조의 무결성**이  
+  전체 시스템 성능에 더 큰 영향을 미친다는 것을 체득
+* 예외 상황을 고려한 **Fail-Safe 설계**가  
+  실제 서비스 환경에서의 완성도를 좌우함을 경험
+* AWS 기반 인프라 설계 역량이  
+  ML 엔지니어에게 중요한 실무 경쟁력임을 확인
