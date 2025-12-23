@@ -35,3 +35,13 @@ plugins:
 
 # === Contact Form (스팸 방지용 Formspree 쓰려면 주석 해제해서 ID 넣기)
 # formspree_form_path: "f/당신의폼ID"
+
+# === Sections ===
+# 여기에 적힌 순서대로 메인 페이지에 나타납니다.
+# timeline이 여기에 없으면 ui-text.yml에 내용을 써도 화면에 안 나옵니다.
+sections:
+  - about      # About Me
+  - services   # Skills
+  - timeline   # Experience (타임라인)
+  - portfolio  # Projects
+  - contact    # Contact
