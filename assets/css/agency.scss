@@ -17,9 +17,9 @@
 {% endif %}
 
 // Custom colors
-$primary: {{ site.data.style.highlight | default: "#fed136" }} !default;
-$white: {{ site.data.style.white | default: "#fff" }} !default;
-$black: {{ site.data.style.black | default: "#000" }} !default;
+$primary: {{ site.data.style.highlight | default: "#63B3ED" }} !default;
+$white: {{ site.data.style.white | default: "#F7F9FC" }} !default;
+$black: {{ site.data.style.black | default: "#111827" }} !default;
 
 // Custom Images
 $header-image: "{{ site.data.style.header-image }}";
@@ -41,3 +41,186 @@ $contact-image: "{{ site.data.style.contact-image }}";
 @import "layout/team.scss";
 @import "layout/contact.scss";
 @import "layout/footer.scss";
+
+// 2026 renewal overrides
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #1f2937;
+  background: #f7f9fc;
+  letter-spacing: -0.01em;
+}
+
+p {
+  line-height: 1.8;
+}
+
+section {
+  padding: 7rem 0;
+}
+
+.section-heading {
+  text-transform: none !important;
+  letter-spacing: -0.035em;
+  color: #111827;
+}
+
+.section-subheading {
+  font-style: normal !important;
+  color: #64748b !important;
+}
+
+#mainNav {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+#mainNav.navbar-shrink {
+  background: rgba(17, 24, 39, 0.92);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.12);
+}
+
+header.masthead {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  text-align: left;
+}
+
+header.masthead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(247, 249, 252, 0.98) 0%, rgba(247, 249, 252, 0.91) 45%, rgba(247, 249, 252, 0.28) 100%);
+}
+
+header.masthead .container {
+  position: relative;
+  z-index: 1;
+}
+
+header.masthead .intro-text {
+  padding-top: 180px;
+  padding-bottom: 120px;
+  max-width: 900px;
+}
+
+header.masthead .intro-text .intro-lead-in {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #3b82b7;
+  margin-bottom: 1.2rem;
+}
+
+header.masthead .intro-text .intro-heading {
+  text-transform: none;
+  font-weight: 800;
+  font-size: clamp(3.8rem, 8vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  color: #111827;
+  margin-bottom: 2.2rem;
+}
+
+.btn-primary {
+  border-radius: 999px;
+  border: 0;
+  padding: 0.95rem 1.65rem;
+  font-weight: 700;
+  box-shadow: 0 10px 28px rgba(49, 130, 206, 0.22);
+}
+
+#about,
+#services,
+#portfolio {
+  background: #f7f9fc;
+}
+
+#timeline {
+  background: #ffffff;
+}
+
+#services .fa-stack {
+  filter: drop-shadow(0 12px 20px rgba(49, 130, 206, 0.16));
+}
+
+#services .service-heading {
+  text-transform: none;
+  letter-spacing: -0.025em;
+}
+
+#portfolio .portfolio-item {
+  margin-bottom: 2rem;
+}
+
+#portfolio .portfolio-item .portfolio-link,
+#portfolio .portfolio-item .portfolio-caption {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#portfolio .portfolio-item .portfolio-caption {
+  background: #ffffff;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+#portfolio .portfolio-item .portfolio-caption h4 {
+  text-transform: none;
+  letter-spacing: -0.025em;
+}
+
+.portfolio-modal .modal-content {
+  background: #f8fafc;
+}
+
+.portfolio-modal .modal-content h2,
+.portfolio-modal .modal-content h3,
+.portfolio-modal .modal-content h4 {
+  text-transform: none;
+  letter-spacing: -0.025em;
+}
+
+.portfolio-modal .modal-content img {
+  border-radius: 18px;
+  box-shadow: 0 16px 44px rgba(15, 23, 42, 0.08);
+}
+
+.timeline > li .timeline-image {
+  background: #63b3ed;
+  border-color: #dbeafe;
+}
+
+footer {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+@media (max-width: 767px) {
+  section {
+    padding: 5rem 0;
+  }
+
+  header.masthead {
+    text-align: left;
+  }
+
+  header.masthead::before {
+    background: rgba(247, 249, 252, 0.88);
+  }
+
+  header.masthead .intro-text {
+    padding-top: 160px;
+    padding-bottom: 100px;
+  }
+
+  header.masthead .intro-text .intro-heading {
+    font-size: clamp(3rem, 16vw, 5rem);
+  }
+}
