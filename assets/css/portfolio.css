@@ -80,7 +80,7 @@ button { font: inherit; }
 /* Hero */
 .hero {
   padding: 142px 0 76px;
-  background: #fff;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 71%, #f3f7ff 71%, #f3f7ff 100%);
   border-bottom: 1px solid var(--line);
 }
 .hero-grid {
@@ -104,6 +104,7 @@ button { font: inherit; }
   letter-spacing: -.045em;
   word-break: keep-all;
 }
+.hero-highlight { color: var(--blue); }
 .hero-lead {
   margin: 24px 0 0;
   max-width: 690px;
@@ -129,10 +130,19 @@ button { font: inherit; }
 .btn-primary:hover { background: #1d2939; }
 .btn-secondary { color: var(--ink); border: 1px solid #d0d5dd; background: #fff; }
 .btn-secondary:hover { border-color: #98a2b3; }
-.hero-profile { border-top: 1px solid var(--ink); }
-.profile-row { padding: 15px 0; border-bottom: 1px solid var(--line); }
-.profile-row span { display: block; margin-bottom: 4px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
-.profile-row strong { display: block; color: var(--ink-soft); font-size: 13px; font-weight: 650; }
+.hero-profile {
+  padding: 20px 24px 8px;
+  border: 0;
+  border-radius: 12px;
+  background: #155eef;
+  color: #fff;
+  box-shadow: 0 18px 42px rgba(21,94,239,.15);
+}
+.profile-label { margin: 0 0 4px; color: rgba(255,255,255,.68); font-size: 9px; font-weight: 800; letter-spacing: .13em; }
+.profile-row { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.2); }
+.profile-row:last-child { border-bottom: 0; }
+.profile-row span { display: block; margin-bottom: 4px; color: rgba(255,255,255,.67); font-size: 9px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.profile-row strong { display: block; color: #fff; font-size: 13px; font-weight: 650; }
 
 /* Evidence */
 .evidence-bar { background: var(--surface); border-bottom: 1px solid var(--line); }
@@ -257,7 +267,7 @@ button { font: inherit; }
 
 @media (max-width: 980px) {
   .section { padding: 72px 0; }
-  .hero { padding: 120px 0 62px; }
+  .hero { padding: 120px 0 62px; background: #fff; }
   .hero-grid { grid-template-columns: 1fr; gap: 42px; }
   .hero-profile { max-width: 620px; }
   .evidence-grid { grid-template-columns: repeat(2, 1fr); }
@@ -297,6 +307,7 @@ button { font: inherit; }
   .hero-lead { font-size: 16px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .btn { width: 100%; }
+  .hero-profile { padding: 18px 20px 6px; }
   .evidence-grid { grid-template-columns: 1fr 1fr; }
   .evidence-grid > div { padding: 16px 12px 16px 0; }
   .evidence-grid > div + div { padding-left: 12px; }
