@@ -1,8 +1,8 @@
 ko: &DEFAULT_KO
   nav:
-    - title: "About Me"
+    - title: "About"
       section: about
-    - title: "Skills"
+    - title: "Strengths"
       section: services
     - title: "Experience"
       section: timeline
@@ -10,56 +10,62 @@ ko: &DEFAULT_KO
       section: portfolio
 
   header:
-    title: "Welcome, I'm Minseo Kim! 👋"
-    text: "Nice to meet you! 🙌"
-    button: "Learn More"
-    buttonlink: "#about"
+    title: "DATA → DECISION"
+    text: "데이터를 비즈니스 의사결정으로 연결하는 김민서입니다."
+    button: "View Projects"
+    buttonlink: "#portfolio"
 
   services:
-    title: "Skills"
-    text: "기술과 도구 | Skills & Tools"
+    title: "Core Strengths"
+    text: "분석 결과를 실제 판단과 실행으로 연결하기 위해 쌓아온 역량"
     section: services
     list:
-      - title: "AI / Machine Learning"
-        desc: "PyTorch, TensorFlow · CNN/YOLO/ResNet/DenseNet/VGG · RAG · 정규화/튜닝/전이학습"
+      - title: "Data Analytics"
+        desc: "Power BI · Power Query · DAX · SQL · Python · Excel | 데이터 정제, KPI 설계, 시각화"
+        icon: fas fa-chart-line
+      - title: "Business & Market Analytics"
+        desc: "시장·경쟁·고객·채널 분석 | PEST · Porter · STP/4P | 분석 결과를 의사결정 인사이트로 해석"
+        icon: fas fa-briefcase
+      - title: "AI & Machine Learning"
+        desc: "PyTorch · scikit-learn · CNN/YOLO | Accuracy · F1 · AUC · Confusion Matrix 기반 모델 평가"
         icon: fas fa-brain
-      - title: "Cloud & DevOps"
-        desc: "AWS(SageMaker/Lambda/EC2/S3/Redshift/CloudFront) · CI/CD · Docker/K8s · API Gateway/Cognito"
+      - title: "Cloud & Delivery"
+        desc: "AWS SageMaker · S3 · ECS/ECR · CloudFront · Streamlit | Git/GitHub · Slack · Notion"
         icon: fas fa-cloud
-      - title: "Programming & Development"
-        desc: "Python(Advanced), SQL · Streamlit/FastAPI · Git & GitHub · 자료구조/알고리즘"
-        icon: fas fa-code
-      - title: "Data Science & Bioinformatics"
-        desc: "Pandas/NumPy · Matplotlib/Seaborn · BioPython · 통계분석/가설검정"
-        icon: fas fa-dna
 
   portfolio:
-    title: "Projects"
-    text: "프로젝트 모음"
+    title: "Selected Projects"
+    text: "문제 정의 → 데이터 분석 → 의사결정으로 이어지는 프로젝트"
     section: portfolio
     closebutton: "닫기"
 
   timeline:
     section: "timeline"
-    title: "Experience / Education / Training"
-    text: "내 학력과 경험"
+    title: "Experience & Education"
+    text: "데이터와 비즈니스를 함께 이해하기 위해 쌓아온 경험"
     start_align: "left"
     events:
-      - title: "대학교"
-        year: "2022 ~ 현재"
-        desc: "생명공학·경영학 전공 · 유전체 데이터 분석 및 Bioinformatics 연구"
-#        image: assets/img/timeline/1.jpg
-      - title: "AWS Training"
-        year: "2025"
-        desc: "AWS Cloud Practitioner 학습 · AI App 구축"
-#        image: assets/img/timeline/2.jpg
-    end: "계속 성장 중!"
+      - title: "Sangmyung University"
+        year: "2022 ~ 2027 (Expected)"
+        desc: "생명공학 주전공 · 경영학 복수전공 · 컴퓨터과학 부전공"
+      - title: "Seoul Café Market & Location Analysis"
+        year: "2024"
+        desc: "45,035개 카페와 184K 유동인구 데이터를 통합해 시장 규모·경쟁 강도·입지 수요를 Power BI로 분석"
+      - title: "Public-Data Marketing Strategy"
+        year: "2024"
+        desc: "세대별 고객 특성과 공공데이터를 기반으로 온·오프라인 통합 마케팅 전략을 설계해 장려상 수상"
+      - title: "AWS Bio Healthcare AI Academy"
+        year: "2025.03 ~ 2025.09"
+        desc: "865시간 과정 · 3인 팀 Dr. Spot 프로젝트 | 이미지 데이터 정제, 모델 평가, 오류 분석, AWS 기반 서비스 구현"
+    end: "Next: 더 나은 의사결정을 만드는 데이터 분석"
 
   about:
     title: "About Me"
-    text: "데이터와 기술을 연결해, 더 나은 미래를 설계하는 사람"
+    text: "데이터를 정리하는 사람보다, 데이터로 판단을 돕는 사람이 되고 싶습니다."
     body: >
-      AI와 클라우드 기반 프로젝트를 수행하며, Computer Vision과 Bioinformatics에 관심이 있습니다.
+      생명공학을 주전공으로, 경영학을 복수전공하고 컴퓨터과학을 부전공하며 데이터와 산업 맥락을 함께 이해하는 기반을 쌓았습니다.
+      Power BI 기반 시장·입지 분석에서는 여러 원천 데이터를 연결해 KPI와 경쟁 구조를 해석했고, AI 피부 분석 프로젝트에서는 데이터 품질과 모델 성능 지표를 바탕으로 문제를 진단하고 개선 방향을 도출했습니다.
+      숫자와 모델 자체보다 분석 결과가 실제 비즈니스 의사결정에 어떻게 쓰이는지에 집중합니다.
     section: about
 
   footer:
