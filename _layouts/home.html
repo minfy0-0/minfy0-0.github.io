@@ -49,8 +49,8 @@ permalink: /
 
       <div class="work-list">
         <article class="project-card project-featured">
-          <div class="project-visual product-shot">
-            <img src="{{ '/assets/img/portfolio/opic-coach.svg' | relative_url }}" alt="OPIc AI Speaking Practice 웹앱 인터페이스 요약 그래픽">
+          <div class="project-visual product-shot dark">
+            <img src="{{ '/assets/img/portfolio/opic-coach.svg' | relative_url }}" data-b64-src="{{ '/assets/img/portfolio/opic-screen.webp.b64.txt' | relative_url }}" alt="OPIc AI Speaking Practice 실제 서비스 화면">
           </div>
           <div class="project-body">
             <span class="project-index">01 · PERSONAL AI WEB PRODUCT · 2026</span>
@@ -73,7 +73,7 @@ permalink: /
 
         <article class="project-card">
           <div class="project-visual contain">
-            <img src="{{ '/assets/img/portfolio/cafe-analysis.svg' | relative_url }}" alt="서울 카페 시장 및 입지 분석 대시보드 요약 그래픽">
+            <img src="{{ '/assets/img/portfolio/cafe-analysis.svg' | relative_url }}" data-b64-src="{{ '/assets/img/portfolio/cafe-screen.webp.b64.txt' | relative_url }}" alt="서울 카페 시장 및 입지 분석 Power BI 실제 대시보드">
           </div>
           <div class="project-body">
             <span class="project-index">02 · BUSINESS INTELLIGENCE · 2024</span>
@@ -92,8 +92,8 @@ permalink: /
         </article>
 
         <article class="project-card">
-          <div class="project-visual dark">
-            <img src="{{ '/assets/img/portfolio/drspot-result.png' | relative_url }}" alt="Dr. Spot AI 피부 분석 결과 화면">
+          <div class="project-visual contain dark">
+            <img src="{{ '/assets/img/portfolio/drspot-result.png' | relative_url }}" data-b64-src="{{ '/assets/img/portfolio/drspot-screen.webp.b64.txt' | relative_url }}" alt="Dr. Spot AI 피부 분석 실제 결과 화면">
           </div>
           <div class="project-body">
             <span class="project-index">03 · DATA QUALITY & MODEL EVALUATION · 2025</span>
@@ -200,5 +200,14 @@ permalink: /
     </div>
   </section>
 </main>
+
+<script>
+  document.querySelectorAll('img[data-b64-src]').forEach((img) => {
+    fetch(img.dataset.b64Src)
+      .then((response) => response.ok ? response.text() : Promise.reject())
+      .then((data) => { img.src = `data:image/webp;base64,${data.trim()}`; })
+      .catch(() => {});
+  });
+</script>
 
 {% include site-footer.html %}
