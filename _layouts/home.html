@@ -4,10 +4,181 @@ title: Home
 permalink: /
 ---
 
-{% include navheader.html %}
+{% include site-nav.html %}
 
-<!-- {# 원하는 섹션 순서대로 배치 #} -->
-{% include about.html %}
-{% include services.html %}
-{% include portfolio_grid.html %}
-{% include timeline.html %}
+<main>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div>
+        <div class="hero-kicker">DATA · BUSINESS · APPLIED AI</div>
+        <h1>DATA TO<em>DECISION.</em></h1>
+        <p class="hero-lead">데이터를 정리하는 데서 끝내지 않고, 문제를 구조화하고 지표를 설계해 실제 의사결정으로 연결합니다.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">Selected work <span>↓</span></a>
+          <a class="btn btn-ghost" href="mailto:{{ site.email }}">Contact me <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-stack">
+        <div class="hero-note">
+          <span class="label">FOCUS</span>
+          <p><strong>Business Analytics</strong><br>시장·고객·성과 데이터를 KPI와 대시보드로 해석합니다.</p>
+        </div>
+        <div class="hero-note">
+          <span class="label">BACKGROUND</span>
+          <p><strong>Biotechnology + Business + Computing</strong><br>산업 맥락, 데이터, 기술을 함께 이해하는 융합형 배경을 갖고 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="metrics reveal" aria-label="Key portfolio metrics">
+    <div class="shell metric-grid">
+      <div class="metric"><strong>45,035</strong><span>서울 카페 등록 데이터 분석</span></div>
+      <div class="metric"><strong>184K</strong><span>유동인구 레코드 통합·비교</span></div>
+      <div class="metric"><strong>37,961</strong><span>Dr. Spot 원천 이미지 정제 시작점</span></div>
+      <div class="metric"><strong>0.974</strong><span>최종 모델 검증 AUC</span></div>
+    </div>
+  </div>
+
+  <section class="section" id="work">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>분석의 결과보다<br>판단의 근거를 만듭니다.</h2>
+        </div>
+        <p>데이터를 모으고 시각화하는 것에 그치지 않고, 어떤 질문을 풀어야 하는지 정의하고 분석 구조와 KPI를 설계한 프로젝트를 중심으로 정리했습니다.</p>
+      </div>
+
+      <div class="work-list">
+        <article class="project-card reveal">
+          <div class="project-visual contain">
+            <img src="{{ '/assets/img/portfolio/cafe-analysis.svg' | relative_url }}" alt="서울 카페 시장 및 입지 분석 대시보드 요약 그래픽">
+          </div>
+          <div class="project-body">
+            <span class="project-index">01 · BUSINESS INTELLIGENCE</span>
+            <h3>Seoul Café Market<br>& Location Analysis</h3>
+            <p>카페 등록·유동인구·행정동 면적 데이터를 연결해 시장 규모, 경쟁 강도, 수요–공급 격차를 행정동 단위로 비교했습니다.</p>
+            <div class="project-tags">
+              <span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">DAX</span><span class="tag">Market Analysis</span>
+            </div>
+            <div class="project-proof">
+              <div><strong>4 datasets</strong><span>분석용 모델로 통합</span></div>
+              <div><strong>424</strong><span>행정동 단위 분석</span></div>
+              <div><strong>67%</strong><span>등록 카페 중 폐업 비중 확인</span></div>
+            </div>
+            <a class="case-link" href="{{ '/projects/seoul-cafe/' | relative_url }}">View case study <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual dark">
+            <img src="{{ '/assets/img/portfolio/drspot-result.png' | relative_url }}" alt="Dr. Spot AI 피부 분석 결과 화면">
+          </div>
+          <div class="project-body">
+            <span class="project-index">02 · DATA QUALITY & MODEL EVALUATION</span>
+            <h3>Dr. Spot<br>AI Skin Analysis</h3>
+            <p>38K 규모 이미지 데이터의 품질과 누수 문제를 정리하고, 5개 모델을 동일 KPI로 비교해 신뢰할 수 있는 평가 구조를 만드는 데 집중했습니다.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">AWS</span><span class="tag">Model Evaluation</span>
+            </div>
+            <div class="project-proof">
+              <div><strong>2,700+</strong><span>train/test leakage 제거</span></div>
+              <div><strong>86.6%</strong><span>최종 검증 Accuracy</span></div>
+              <div><strong>5 × 5</strong><span>5개 모델 · 5개 KPI 비교</span></div>
+            </div>
+            <a class="case-link" href="{{ '/projects/drspot/' | relative_url }}">View case study <span>→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="more-work">
+        <article class="mini-card reveal">
+          <span class="meta">2024 · ENCOURAGEMENT AWARD</span>
+          <h3>Public-Data Marketing Strategy</h3>
+          <p>공공데이터를 활용해 Z세대·밀레니얼·X세대별 고객 특성을 나누고 STP, 4P, ESG를 결합한 온·오프라인 통합 마케팅 전략을 설계했습니다.</p>
+        </article>
+        <article class="mini-card reveal">
+          <span class="meta">2024 · INDUSTRY ANALYSIS</span>
+          <h3>SNS & Digital Advertising Market</h3>
+          <p>PEST와 Porter’s Five Forces를 활용해 글로벌 디지털 광고 산업의 경쟁 구조와 개인정보 규제, AI 타기팅, ESG 소비 트렌드의 전략적 영향을 정리했습니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="shell about-panel reveal">
+      <div>
+        <p class="eyebrow">ABOUT</p>
+        <h2>숫자를 보는 사람보다,<br>숫자의 의미를 설명하는 사람.</h2>
+      </div>
+      <div class="about-copy">
+        <p>생명공학을 주전공으로, 경영학을 복수전공하고 컴퓨팅을 부전공하며 <strong>데이터와 산업 맥락을 함께 보는 방식</strong>을 익혀왔습니다.</p>
+        <p>제가 중요하게 보는 것은 분석 기법 자체보다 <strong>“이 결과가 어떤 의사결정을 바꿀 수 있는가”</strong>입니다. 그래서 프로젝트에서도 데이터 정합성, KPI 정의, 오류 원인, 시장 구조처럼 판단의 근거가 되는 부분을 먼저 확인합니다.</p>
+        <p>앞으로도 데이터 분석과 비즈니스 이해를 바탕으로 문제를 구조화하고, 실무자가 바로 활용할 수 있는 인사이트와 분석 결과를 만드는 역할을 지향합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">EXPERIENCE & EDUCATION</p>
+          <h2>학습한 것을<br>프로젝트로 검증했습니다.</h2>
+        </div>
+        <p>데이터 분석, 비즈니스 프레임워크, AI 프로젝트를 따로 배우기보다 실제 문제에 적용하며 연결해 왔습니다.</p>
+      </div>
+
+      <div class="experience-grid">
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <time>2025</time>
+            <div><h3>AWS Bio Healthcare AI Academy</h3><p>AWS × 성균관대학교 · 865시간 · 3인 팀 Dr. Spot 프로젝트</p></div>
+          </div>
+          <div class="timeline-item">
+            <time>2024</time>
+            <div><h3>Seoul Café Market & Location Analysis</h3><p>Power BI · Power Query · DAX 기반 시장·입지 분석</p></div>
+          </div>
+          <div class="timeline-item">
+            <time>2024</time>
+            <div><h3>Public-Data Marketing Strategy</h3><p>세대별 옴니채널 전략 설계 · 장려상</p></div>
+          </div>
+        </div>
+
+        <aside class="education-card reveal">
+          <p class="eyebrow">EDUCATION</p>
+          <h3>Sangmyung University</h3>
+          <p>B.S. in Biotechnology<br>Double Major in Business Administration<br>Minor in Computer Science<br><br>Expected Graduation · Feb 2027</p>
+          <div class="cert-list">
+            <div class="cert"><span>SQL Developer</span><strong>SQLD</strong></div>
+            <div class="cert"><span>Advanced Data Analytics Semi-Professional</span><strong>ADsP</strong></div>
+            <div class="cert"><span>AWS Certified Cloud Practitioner</span><strong>CLF-C02</strong></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">SKILLS</p>
+          <h2>도구보다<br>문제 해결 흐름 중심.</h2>
+        </div>
+        <p>수집·정제 → 분석 → KPI/시각화 → 해석 → 전달의 흐름 안에서 필요한 도구를 선택합니다.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal"><span class="num">01</span><h3>Data & BI</h3><p>Python · SQL · Power BI · Power Query · DAX · Excel · Data Cleaning · KPI Reporting</p></div>
+        <div class="skill-card reveal"><span class="num">02</span><h3>Business Analysis</h3><p>Market sizing · Competitive analysis · Customer segmentation · PEST · Porter 5 Forces · STP</p></div>
+        <div class="skill-card reveal"><span class="num">03</span><h3>Machine Learning</h3><p>PyTorch · scikit-learn · CNN model evaluation · Confusion Matrix · ROC/AUC · Error analysis</p></div>
+        <div class="skill-card reveal"><span class="num">04</span><h3>Cloud & Delivery</h3><p>AWS SageMaker · S3 · ECS/ECR · CloudFront · Streamlit · Git & GitHub</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include site-footer.html %}
