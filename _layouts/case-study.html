@@ -4,6 +4,19 @@ layout: default
 
 {% include site-nav.html %}
 
+{% assign case_cover = page.cover %}
+{% assign case_cover_alt = page.cover_alt | default: page.title %}
+{% if page.permalink == '/projects/opic-coach/' %}
+  {% assign case_cover = '/assets/img/portfolio/opic-screen.png' %}
+  {% assign case_cover_alt = 'OPIc AI Speaking Practice 실제 서비스 화면' %}
+{% elsif page.permalink == '/projects/seoul-cafe/' %}
+  {% assign case_cover = '/assets/img/portfolio/cafe-screen.png' %}
+  {% assign case_cover_alt = '서울 카페 시장 및 입지 분석 Power BI 실제 대시보드' %}
+{% elsif page.permalink == '/projects/drspot/' %}
+  {% assign case_cover = '/assets/img/portfolio/drspot-screen.png' %}
+  {% assign case_cover_alt = 'Dr. Spot AI 피부 분석 실제 결과 화면' %}
+{% endif %}
+
 <main class="case-page">
   <section class="case-hero">
     <div class="shell">
@@ -30,9 +43,9 @@ layout: default
           {% endfor %}
         </div>
       </div>
-      {% if page.cover %}
+      {% if case_cover %}
       <div class="case-cover reveal">
-        <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">
+        <img src="{{ case_cover | relative_url }}" alt="{{ case_cover_alt }}">
       </div>
       {% endif %}
     </div>
