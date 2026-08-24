@@ -1,27 +1,23 @@
-#Color Customization
-#highlight: "#54bfff"
-#white: "#FF0000"
-#black: "#000"
+# Color Customization
+highlight: "#63B3ED"
+white: "#F7F9FC"
+black: "#111827"
 
-#Image Customization
-header-image: "../img/header.png"
-#Font Awesome icon for portfolio grid when an item is hovered over
-#portfolio-icon: fas fa-expand-arrows-alt fa-3x #default: fas fa-plus fa-3x
+# Image Customization
+header-image: "../img/header-renewal.svg"
+portfolio-icon: fas fa-arrow-up-right-from-square fa-2x
 
 # Add custom fonts
 fonts_urls:
-    - "https://fonts.googleapis.com/css?family=Montserrat:400,700"
-    - "https://fonts.googleapis.com/css?family=Kaushan+Script"
-    - "https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
-    - "https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+  - "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
 
 # Set custom fonts
 fonts:
-  - name: "Montserrat"
+  - name: "Inter"
     for: "heading"
-  - name: "Kaushan Script"
+  - name: "Inter"
     for: "script"
-  - name: "Droid Serif"
+  - name: "Noto Sans KR"
     for: "serif"
-  - name: "Roboto Slab"
+  - name: "Noto Sans KR"
     for: "body"

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">OPIc AI Speaking Practice product overview</title>
+  <desc id="desc">A browser interface showing topic practice, survey-based mock exam, transcript and 100-point Korean feedback.</desc>
+  <rect width="1200" height="760" fill="#f4f6f8"/>
+  <rect x="48" y="46" width="1104" height="668" rx="16" fill="#ffffff" stroke="#d9dee7" stroke-width="2"/>
+  <rect x="48" y="46" width="1104" height="54" rx="16" fill="#f8fafc"/>
+  <circle cx="78" cy="73" r="5" fill="#c4cad4"/><circle cx="96" cy="73" r="5" fill="#c4cad4"/><circle cx="114" cy="73" r="5" fill="#c4cad4"/>
+  <text x="148" y="79" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" fill="#344054">OPIc AI Speaking Practice</text>
+
+  <rect x="76" y="128" width="245" height="550" rx="10" fill="#f8fafc" stroke="#e4e7ec"/>
+  <text x="98" y="160" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#667085">PRACTICE</text>
+  <rect x="98" y="181" width="201" height="38" rx="7" fill="#ffffff" stroke="#d0d5dd"/>
+  <text x="112" y="205" font-family="Inter,Arial,sans-serif" font-size="12" fill="#98a2b3">Search topic</text>
+  <g font-family="Inter,Arial,sans-serif" font-size="12">
+    <rect x="98" y="240" width="201" height="44" rx="7" fill="#eaf1ff"/><text x="112" y="267" fill="#1849a9" font-weight="700">Coffee shop</text>
+    <rect x="98" y="292" width="201" height="44" rx="7" fill="#ffffff"/><text x="112" y="319" fill="#475467">Park</text>
+    <rect x="98" y="344" width="201" height="44" rx="7" fill="#ffffff"/><text x="112" y="371" fill="#475467">Travel</text>
+    <rect x="98" y="396" width="201" height="44" rx="7" fill="#ffffff"/><text x="112" y="423" fill="#475467">Roleplay</text>
+  </g>
+  <rect x="98" y="474" width="201" height="70" rx="8" fill="#155eef"/>
+  <text x="112" y="499" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" fill="#bcd0ff">MOCK EXAM</text>
+  <text x="112" y="521" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#ffffff">Survey → Surprise</text>
+  <text x="112" y="538" font-family="Inter,Arial,sans-serif" font-size="11" fill="#d9e4ff">Roleplay → Advance</text>
+  <text x="98" y="646" font-family="Inter,Arial,sans-serif" font-size="11" fill="#667085">74 topics · 264 question variants</text>
+
+  <rect x="349" y="128" width="775" height="246" rx="10" fill="#ffffff" stroke="#e4e7ec"/>
+  <text x="375" y="160" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#667085">SPEAKING SESSION</text>
+  <text x="375" y="205" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700" fill="#101828">Listen. Record. Review.</text>
+  <text x="375" y="238" font-family="Inter,Arial,sans-serif" font-size="13" fill="#667085">Hannah voice · question hidden from screen · up to 2 plays</text>
+  <rect x="375" y="274" width="148" height="44" rx="7" fill="#101828"/><text x="419" y="301" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#ffffff">PLAY QUESTION</text>
+  <rect x="535" y="274" width="112" height="44" rx="7" fill="#ffffff" stroke="#d0d5dd"/><text x="568" y="301" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#344054">RECORD</text>
+  <g transform="translate(748 274)" fill="none" stroke="#84aaf6" stroke-width="4" stroke-linecap="round">
+    <path d="M0 22h12l8-15 12 30 12-23 12 16 10-8h14"/>
+  </g>
+
+  <rect x="349" y="398" width="372" height="280" rx="10" fill="#ffffff" stroke="#e4e7ec"/>
+  <text x="375" y="430" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#667085">TRANSCRIPT</text>
+  <rect x="375" y="451" width="320" height="181" rx="8" fill="#f8fafc"/>
+  <text x="394" y="482" font-family="Inter,Arial,sans-serif" font-size="12" fill="#475467">I usually go to a coffee shop near</text>
+  <text x="394" y="504" font-family="Inter,Arial,sans-serif" font-size="12" fill="#475467">my house. It is about two kilometers</text>
+  <text x="394" y="526" font-family="Inter,Arial,sans-serif" font-size="12" fill="#475467">away, and I like the atmosphere...</text>
+  <rect x="375" y="644" width="112" height="20" rx="4" fill="#eef2f6"/><text x="388" y="658" font-family="Inter,Arial,sans-serif" font-size="9" fill="#667085">Whisper Large V3 Turbo</text>
+
+  <rect x="745" y="398" width="379" height="280" rx="10" fill="#ffffff" stroke="#e4e7ec"/>
+  <text x="771" y="430" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#667085">AI FEEDBACK · /100</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <text x="771" y="468" font-size="11" fill="#667085">QUESTION RELEVANCE</text><text x="1068" y="468" text-anchor="end" font-size="14" font-weight="700" fill="#101828">88</text>
+    <line x1="771" y1="481" x2="1098" y2="481" stroke="#e4e7ec"/>
+    <text x="771" y="510" font-size="11" fill="#667085">NATURALNESS</text><text x="1068" y="510" text-anchor="end" font-size="14" font-weight="700" fill="#101828">82</text>
+    <line x1="771" y1="523" x2="1098" y2="523" stroke="#e4e7ec"/>
+    <text x="771" y="552" font-size="11" fill="#667085">GRAMMAR</text><text x="1068" y="552" text-anchor="end" font-size="14" font-weight="700" fill="#101828">79</text>
+    <line x1="771" y1="565" x2="1098" y2="565" stroke="#e4e7ec"/>
+    <text x="771" y="594" font-size="11" fill="#667085">TENSE CONTROL</text><text x="1068" y="594" text-anchor="end" font-size="14" font-weight="700" fill="#101828">84</text>
+    <rect x="771" y="615" width="327" height="38" rx="7" fill="#f2f6fc"/>
+    <text x="787" y="631" font-size="9" font-weight="700" fill="#1849a9">WHY THIS SCORE?</text>
+    <text x="787" y="646" font-size="9" fill="#475467">한국어 이유 · 문법 수정 · 시제 분석 · OPIc tip</text>
+  </g>
+</svg>

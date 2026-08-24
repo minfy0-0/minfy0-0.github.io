@@ -4,10 +4,201 @@ title: Home
 permalink: /
 ---
 
-{% include navheader.html %}
+{% include site-nav.html %}
 
-<!-- {# 원하는 섹션 순서대로 배치 #} -->
-{% include about.html %}
-{% include services.html %}
-{% include portfolio_grid.html %}
-{% include timeline.html %}
+<main>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="hero-kicker">MINSEO KIM · DATA & BUSINESS ANALYTICS</p>
+        <h1>데이터를 근거로,<br><span class="hero-highlight">더 나은 판단</span>을 만듭니다.</h1>
+        <p class="hero-lead">시장 데이터부터 AI 서비스까지, 문제를 구조화하고 데이터를 정리해 실제 의사결정에 사용할 수 있는 결과로 연결해 왔습니다.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">프로젝트 보기 <span>↓</span></a>
+          <a class="btn btn-secondary" href="mailto:{{ site.email }}">Contact <span>↗</span></a>
+        </div>
+      </div>
+      <aside class="hero-profile" aria-label="Portfolio summary">
+        <p class="profile-label">PROFILE</p>
+        <div class="profile-row"><span>Focus</span><strong>Data Analytics · BI · Applied AI</strong></div>
+        <div class="profile-row"><span>Background</span><strong>Biotechnology · Business · Computing</strong></div>
+        <div class="profile-row"><span>Current build</span><strong>OPIc AI Speaking Practice Web · 2026</strong></div>
+        <div class="profile-row"><span>Based in</span><strong>Seoul, South Korea</strong></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="evidence-bar" aria-label="Selected evidence">
+    <div class="shell evidence-grid">
+      <div><strong>74</strong><span>OPIc active topics</span></div>
+      <div><strong>45,035</strong><span>Seoul café records</span></div>
+      <div><strong>2,700+</strong><span>data leakage cases removed</span></div>
+      <div><strong>0.974</strong><span>Dr. Spot validation AUC</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>문제를 정의하고,<br>근거를 설계한 프로젝트</h2>
+        </div>
+        <p>기술 스택보다 제가 어떤 문제를 발견했고, 어떤 데이터를 연결했으며, 무엇을 개선했는지가 보이도록 정리했습니다.</p>
+      </div>
+
+      <div class="work-list">
+        <article class="project-card project-featured">
+          <div class="project-visual product-shot">
+            <img src="{{ '/assets/img/portfolio/opic-coach.svg' | relative_url }}" alt="OPIc AI Speaking Practice 웹앱 인터페이스 요약 그래픽">
+          </div>
+          <div class="project-body">
+            <span class="project-index">01 · PERSONAL AI WEB PRODUCT · 2026</span>
+            <h3>OPIc AI Speaking Practice Web</h3>
+            <p>실제 OPIc 학습 과정에서 생긴 불편을 출발점으로 직접 기획·개발한 웹앱입니다. 문제은행 연습뿐 아니라 배경 설문 기반 모의고사, Hannah 질문 음성, 녹음·전사, 세분화된 한국어 AI 피드백, 사용자별 스크립트와 연습 기록을 하나의 흐름으로 연결했습니다.</p>
+            <div class="project-tags">
+              <span class="tag">Next.js 16</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Groq API</span>
+            </div>
+            <div class="project-proof">
+              <div><strong>74 · 264</strong><span>활성 주제 · 질문 변형</span></div>
+              <div><strong>4-axis feedback</strong><span>적합도 · 자연스러움 · 문법 · 시제</span></div>
+              <div><strong>Survey mock</strong><span>돌발 · 롤플레이 · 고난도 조합</span></div>
+            </div>
+            <div class="project-actions" style="display:flex; gap:18px; flex-wrap:wrap;">
+              <a class="case-link" href="https://opic-coach-nine.vercel.app" target="_blank" rel="noreferrer">Live product <span>↗</span></a>
+              <a class="case-link" href="{{ '/projects/opic-coach/' | relative_url }}">Case study 보기 <span>→</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual contain">
+            <img src="{{ '/assets/img/portfolio/cafe-analysis.svg' | relative_url }}" alt="서울 카페 시장 및 입지 분석 대시보드 요약 그래픽">
+          </div>
+          <div class="project-body">
+            <span class="project-index">02 · BUSINESS INTELLIGENCE · 2024</span>
+            <h3>Seoul Café Market & Location Analysis</h3>
+            <p>카페 등록·유동인구·행정동 면적 데이터를 연결해 시장 규모와 경쟁 강도, 수요–공급 격차를 행정동 단위로 비교했습니다.</p>
+            <div class="project-tags">
+              <span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">DAX</span><span class="tag">Market Analysis</span>
+            </div>
+            <div class="project-proof">
+              <div><strong>45,035</strong><span>카페 데이터</span></div>
+              <div><strong>184K</strong><span>유동인구 레코드</span></div>
+              <div><strong>424</strong><span>행정동 단위 분석</span></div>
+            </div>
+            <a class="case-link" href="{{ '/projects/seoul-cafe/' | relative_url }}">Case study 보기 <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual dark">
+            <img src="{{ '/assets/img/portfolio/drspot-result.png' | relative_url }}" alt="Dr. Spot AI 피부 분석 결과 화면">
+          </div>
+          <div class="project-body">
+            <span class="project-index">03 · DATA QUALITY & MODEL EVALUATION · 2025</span>
+            <h3>Dr. Spot · AI Skin Analysis</h3>
+            <p>37,961개 원천 이미지에서 중복·품질 문제를 정리하고, 모델별 성능을 동일 KPI로 비교해 평가 신뢰도를 높였습니다. 최종 서비스는 YOLOv8 탐지, EfficientNet-B4 분류, AWS 기반 배포 구조로 구현했습니다.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">SageMaker</span><span class="tag">ECS Fargate</span>
+            </div>
+            <div class="project-proof">
+              <div><strong>37,961 → 25,813</strong><span>정제 데이터셋</span></div>
+              <div><strong>2,700+</strong><span>leakage 제거</span></div>
+              <div><strong>86.6% · 0.974</strong><span>Accuracy · AUC</span></div>
+            </div>
+            <a class="case-link external" href="https://github.com/minfy0-0/say_capybara" target="_blank" rel="noreferrer">GitHub repository <span>↗</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="subsection-head">
+        <p class="eyebrow">OTHER EXPERIENCE</p>
+        <h3>분석을 실제 운영과 전략에 적용한 경험</h3>
+      </div>
+      <div class="more-work three-up">
+        <article class="mini-card">
+          <span class="meta">CONTENT & CHANNEL ANALYTICS</span>
+          <h3>Multi-channel Content Operation</h3>
+          <p>Naver Blog·Tistory·Instagram·YouTube를 직접 운영하며 조회·유입 데이터를 보고 제목, 썸네일, 콘텐츠 구성을 반복 개선했습니다.</p>
+          <div class="mini-proof"><strong>5,000+</strong> YouTube single-video views · <strong>100+</strong> Naver daily visitors · <strong>10K+</strong> cumulative views</div>
+        </article>
+        <article class="mini-card">
+          <span class="meta">2024 · ENCOURAGEMENT AWARD</span>
+          <h3>Public-Data Marketing Strategy</h3>
+          <p>공공데이터를 활용해 Z세대·밀레니얼·X세대별 고객 특성을 나누고 STP, 4P, ESG를 결합한 온·오프라인 통합 전략을 설계했습니다.</p>
+        </article>
+        <article class="mini-card">
+          <span class="meta">2024 · INDUSTRY ANALYSIS</span>
+          <h3>SNS & Digital Advertising Market</h3>
+          <p>PEST와 Porter’s Five Forces를 활용해 디지털 광고 산업의 경쟁 구조와 개인정보 규제, AI 타기팅, ESG 소비 트렌드의 영향을 분석했습니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted" id="experience">
+    <div class="shell">
+      <div class="section-head compact">
+        <div>
+          <p class="eyebrow">EXPERIENCE</p>
+          <h2>시간순으로 보는 경험</h2>
+        </div>
+        <p>학습한 내용을 프로젝트와 실제 운영에 적용하면서 데이터·비즈니스·개발 경험을 확장해 왔습니다.</p>
+      </div>
+      <div class="timeline experience-list">
+        <div class="timeline-item"><time>2026</time><div><h3>OPIc AI Speaking Practice Web</h3><p>개인 AI 웹서비스 기획·개발 · 74개 주제/264개 질문 변형 · 배경 설문 기반 모의고사 · 음성 전사와 세분화 AI 피드백 · Supabase 사용자 데이터 관리</p></div></div>
+        <div class="timeline-item"><time>2025.03–09</time><div><h3>AWS Bio Healthcare AI Academy</h3><p>AWS × 성균관대학교 · 865시간 · 3인 팀 Dr. Spot 프로젝트</p></div></div>
+        <div class="timeline-item"><time>2024</time><div><h3>Seoul Café Market & Location Analysis</h3><p>Power BI · Power Query · DAX 기반 시장·입지 분석</p></div></div>
+        <div class="timeline-item"><time>2024</time><div><h3>Public-Data Marketing Strategy</h3><p>세대별 옴니채널 전략 설계 · 글로벌경영학회 장려상</p></div></div>
+        <div class="timeline-item"><time>Ongoing</time><div><h3>Multi-channel Content Operation</h3><p>블로그·Tistory·Instagram·YouTube 운영 데이터를 기반으로 콘텐츠를 반복 개선</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="shell about-grid">
+      <div>
+        <p class="eyebrow">ABOUT</p>
+        <h2>데이터와 산업 맥락을 함께 봅니다.</h2>
+      </div>
+      <div class="about-copy">
+        <p>생명공학을 주전공으로, 경영학을 복수전공하고 컴퓨터 과학을 부전공하며 서로 다른 분야의 언어를 데이터로 연결해 왔습니다.</p>
+        <p>분석 기법 자체보다 <strong>어떤 질문을 풀어야 하는지, 결과가 어떤 판단에 쓰이는지</strong>를 먼저 생각합니다. 그래서 데이터 정합성, KPI 정의, 오류 원인, 시장 구조처럼 의사결정의 근거가 되는 부분을 중요하게 봅니다.</p>
+        <p>현재는 데이터 분석과 비즈니스 이해를 기반으로, 필요할 때 AI와 웹 기술까지 직접 연결해 문제를 해결하는 역할을 지향합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted" id="skills">
+    <div class="shell">
+      <div class="section-head compact">
+        <div>
+          <p class="eyebrow">EDUCATION & SKILLS</p>
+          <h2>기반 역량</h2>
+        </div>
+        <p>도구를 나열하기보다, 실제 프로젝트에서 사용한 범위를 중심으로 정리했습니다.</p>
+      </div>
+      <div class="foundation-grid">
+        <aside class="education-card">
+          <p class="eyebrow">EDUCATION</p>
+          <h3>Sangmyung University</h3>
+          <p>B.S. in Biotechnology<br>Double Major in Business Administration<br>Minor in Computer Science<br><br>Expected Graduation · Feb 2027</p>
+          <div class="cert-list">
+            <div class="cert"><span>SQL Developer</span><strong>SQLD</strong></div>
+            <div class="cert"><span>Advanced Data Analytics Semi-Professional</span><strong>ADsP</strong></div>
+            <div class="cert"><span>AWS Certified Cloud Practitioner</span><strong>CLF-C02</strong></div>
+          </div>
+        </aside>
+        <div class="skills-grid">
+          <div class="skill-card"><span class="num">01</span><h3>Data & BI</h3><p>Python · SQL · Power BI · Power Query · DAX · Excel · Data Cleaning · KPI Reporting</p></div>
+          <div class="skill-card"><span class="num">02</span><h3>Business Analysis</h3><p>Market sizing · Competitive analysis · Customer segmentation · PEST · Porter 5 Forces · STP</p></div>
+          <div class="skill-card"><span class="num">03</span><h3>AI & ML</h3><p>PyTorch · scikit-learn · Whisper · LLM evaluation · Confusion Matrix · ROC/AUC · Error analysis</p></div>
+          <div class="skill-card"><span class="num">04</span><h3>Web & Cloud</h3><p>Next.js · TypeScript · Supabase · AWS SageMaker · ECS/ECR · Streamlit · GitHub · Vercel</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include site-footer.html %}

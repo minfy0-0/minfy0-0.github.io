@@ -1,19 +1,53 @@
 ---
-title: Project Name
-subtitle: Lorem ipsum dolor sit amet consectetur.
-image: https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-agency/master/src/assets/img/portfolio/02-full.jpg
-alt: Keep Exploring
-
 caption:
-  title: Explore
-  subtitle: Graphic Design
-  thumbnail: https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-agency/master/src/assets/img/portfolio/02-thumbnail.jpg
+  title: Seoul Café Market
+  subtitle: Power BI 시장·입지 분석
+  thumbnail: /assets/img/portfolio/cafe-analysis.svg
+
+title: Seoul Café Market & Location Analysis
+subtitle: 카페·유동인구·행정동 데이터를 통합해 시장 규모와 입지 경쟁력을 분석한 Power BI 프로젝트
+image: /assets/img/portfolio/cafe-analysis.svg
+alt: Seoul Cafe Market Analysis Dashboard Illustration
 ---
 
-Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!
+### 🔍 Problem
+카페 입지를 판단할 때 단순 매장 수만 보면 시장의 실제 수요와 경쟁 강도를 함께 보기 어렵습니다.  
+서울 전역의 카페 등록 데이터와 유동인구 데이터를 연결해 **어디가 포화되어 있고, 어디에 상대적인 기회가 있는지** 데이터로 확인하고자 했습니다.
 
-{:.list-inline}
+---
 
-- Date: January 2017
-- Client: Explore
-- Category: Graphic Design
+### 🧩 Data & Modeling
+* **카페 등록 데이터:** 45,035개
+* **유동인구 데이터:** 184K records
+* **분석 범위:** 서울 25개 자치구 · 424개 행정동
+* **데이터 통합:** 행정동 코드 매핑(Master) 테이블을 직접 구성해 서로 다른 원천 데이터의 지역 기준을 통일
+* **전처리:** Power Query로 결측·형식 차이를 정리하고 분석용 데이터 모델 구축
+
+---
+
+### 📊 Key Analysis
+
+#### 1. 시장 규모와 생존 구조
+DAX로 누적 개업·폐업, 영업 중 매장 수, YTD 폐업률을 계산했습니다.  
+전체 등록 카페 45,035개 중 **30,224개(약 67%)가 폐업 상태**인 것을 확인해 높은 시장 진입·퇴출 강도를 정량화했습니다.
+
+#### 2. 브랜드 경쟁 구조
+11개 주요 커피 브랜드의 시장 점유율을 비교하고, 지역별 매장 분포를 시각화해 **브랜드별 경쟁 밀도와 상권 집중도**를 확인했습니다.
+
+#### 3. 수요–공급 Gap 분석
+20~40대 유동인구와 행정동별 카페 수를 비교해 **수요 대비 공급이 부족한 지역과 포화 지역**을 구분했습니다.  
+단순 매장 수가 아니라 잠재 수요와 경쟁 수준을 함께 보는 입지 판단 기준을 만들었습니다.
+
+---
+
+### 🎯 My Contribution
+* 여러 데이터셋을 연결하는 **행정동 코드 매핑 구조 설계**
+* Power Query 기반 **데이터 정제·변환 및 모델링**
+* DAX 기반 **KPI 정의 및 계산식 구현**
+* Power BI 대시보드 구성과 **시장·입지 인사이트 도출**
+
+---
+
+### 💡 What I Learned
+데이터 분석의 핵심은 차트를 많이 만드는 것이 아니라, 의사결정에 필요한 기준을 먼저 정의하는 것임을 배웠습니다.  
+이 프로젝트를 통해 **시장 규모 → 경쟁 강도 → 수요·공급 Gap**으로 분석 흐름을 구조화하고, 여러 원천 데이터를 비즈니스 질문에 맞는 KPI로 연결하는 경험을 쌓았습니다.

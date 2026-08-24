@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+{% include site-nav.html %}
+
+<main class="case-page">
+  <section class="case-hero">
+    <div class="shell">
+      <a class="back-link" href="{{ '/#work' | relative_url }}">← Back to selected work</a>
+      <div class="case-hero-grid">
+        <div>
+          <p class="eyebrow">{{ page.eyebrow }}</p>
+          <h1>{{ page.title }}</h1>
+          <p class="lead">{{ page.description }}</p>
+          {% if page.tags %}
+          <div class="project-tags">
+            {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+          </div>
+          {% endif %}
+          {% if page.live_url %}
+          <div class="hero-actions" style="margin-top: 20px;">
+            <a class="btn btn-primary" href="{{ page.live_url }}" target="_blank" rel="noreferrer">Visit live product <span>↗</span></a>
+          </div>
+          {% endif %}
+        </div>
+        <div class="case-facts">
+          {% for fact in page.facts %}
+          <div class="case-fact"><span>{{ fact.label }}</span><strong>{{ fact.value }}</strong></div>
+          {% endfor %}
+        </div>
+      </div>
+      {% if page.cover %}
+      <div class="case-cover reveal">
+        <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <article class="case-content">
+    {{ content }}
+  </article>
+</main>
+
+{% include site-footer.html %}
