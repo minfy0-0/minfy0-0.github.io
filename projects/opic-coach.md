@@ -3,6 +3,7 @@ layout: case-study
 title: OPIc AI Speaking Practice Web
 eyebrow: PERSONAL AI WEB PRODUCT · 2026
 description: 실제 OPIc 학습 과정에서 생긴 불편을 직접 정의하고, 문제은행 연습·배경 설문 기반 모의고사·음성 전사·세분화 AI 피드백·연습 기록까지 하나의 학습 제품으로 확장한 개인 웹 프로젝트입니다.
+live_url: https://opic-coach-nine.vercel.app
 tags:
   - Next.js 16
   - React 19
