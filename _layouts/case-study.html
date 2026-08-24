@@ -18,6 +18,11 @@ layout: default
             {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
           </div>
           {% endif %}
+          {% if page.live_url %}
+          <div class="hero-actions" style="margin-top: 20px;">
+            <a class="btn btn-primary" href="{{ page.live_url }}" target="_blank" rel="noreferrer">Visit live product <span>↗</span></a>
+          </div>
+          {% endif %}
         </div>
         <div class="case-facts">
           {% for fact in page.facts %}
