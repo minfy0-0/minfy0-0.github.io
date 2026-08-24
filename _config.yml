@@ -1,26 +1,22 @@
 # === Theme ===
-# 원격 테마 사용 (리포 안에 테마 소스가 없다면 유지)
 remote_theme: raviriley/agency-jekyll-theme
 
-# === Site URL (프로젝트 페이지 기준) ===
-# 깃허브 계정: minfy0-0 / 리포: minfy0-0.github.io
+# === Site URL ===
 url: "https://minfy0-0.github.io"
-baseurl: ""    # 반드시 빈 문자열로!       
+baseurl: ""
+
 # === Branding ===
-title: Minseo Kim's Portfolio
-email: minseo03070294@gmail.com                      # 연락 받을 이메일
-description: "AI & Cloud Developer | Bridging Bioinformatics, Business, and Creative Innovation"
+title: Minseo Kim | Data & Business Analytics
+email: minseo03070294@gmail.com
+description: "Data & Business Analytics portfolio connecting data, business context, and AI to better decisions."
 author: Minseo Kim
-# logo:
-#   path: /assets/img/og.png                   # OG/파비콘 이미지 쓰면 경로 지정
-#   height: 60
 
-# === Locale (한국어 UI 쓰려면 ko-KR) ===
-locale: "ko"                               # _data/sitetext.yml의 ko 블록과 매칭
+# === Locale ===
+locale: "ko"
 
-# === Analytics (원하면 나중에 넣기)
+# === Analytics ===
 analytics:
-  google:   G-NHHT43834D                      # ex) G-XXXXXX
+  google: G-NHHT43834D
 
 # === Collections ===
 collections:
@@ -28,19 +24,14 @@ collections:
 
 markdown: kramdown
 
-# === Plugins (SEO/Sitemap 권장) ===
+# === Plugins ===
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# === Contact Form (스팸 방지용 Formspree 쓰려면 주석 해제해서 ID 넣기)
-# formspree_form_path: "f/당신의폼ID"
-
 # === Sections ===
-# 여기에 적힌 순서대로 메인 페이지에 나타납니다.
-# timeline이 여기에 없으면 ui-text.yml에 내용을 써도 화면에 안 나옵니다.
 sections:
-  - about      # About Me
-  - services   # Skills
-  - timeline   # Experience (타임라인)
-  - portfolio  # Projects
+  - about
+  - services
+  - timeline
+  - portfolio
