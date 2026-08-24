@@ -1,21 +1,11 @@
-#
-# Work based on https://github.com/mmistakes/minimal-mistakes/blob/master/_data/ui-text.yml
-#
-# Configuration: Add to _config.yml
-# locale: "en-US"  [YOUR PREFERRED LOCALE]
-#
-# How to use:
-# {{ site.data.navigation[site.locale].nav.<var_name> | default: 'text' }}
-
+# Navigation for the portfolio site
 ko:
   nav:
-    - title: "About Me"
+    - title: "About"
       section: about
-    - title: "Skills & Tools"
+    - title: "Strengths"
       section: services
-    - title: "Projects"
-      section: portfolio
     - title: "Experience"
       section: timeline
-
-
+    - title: "Projects"
+      section: portfolio
