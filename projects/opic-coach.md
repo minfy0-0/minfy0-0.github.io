@@ -13,7 +13,7 @@ tags:
   - Vercel
 facts:
   - label: Question bank
-    value: 74 active topics · 264 question variants
+    value: 166 active topics · 219 active questions
   - label: Mock exam
     value: Survey · Surprise · Roleplay · Advance combinations
   - label: Feedback
@@ -44,12 +44,12 @@ OPIc를 준비하면서 질문 자료, 개인 스크립트, 실제 말하기, �
 
 ## 02. 문제은행 — 공용 콘텐츠와 개인 데이터를 분리
 
-현재 공용 문제은행에는 **74개 활성 주제와 264개 활성 질문 변형**이 연결되어 있습니다. 질문은 주제별 여러 variant로 구성해 같은 주제를 반복하더라도 완전히 같은 문장만 나오지 않도록 했습니다.
+현재 공용 문제은행에는 **166개 활성 주제와 219개 활성 질문**이 연결되어 있습니다. 질문은 주제별 여러 variant로 구성해 같은 주제를 반복하더라도 완전히 같은 문장만 나오지 않도록 했습니다.
 
 데이터는 다음처럼 역할에 따라 분리했습니다.
 
 - `topics` — 공용 문제 주제
-- `questions` — 공용 질문 변형
+- `questions` — 공용 질문
 - `scripts` — 로그인 사용자별 개인 스크립트
 - `practice_records` — 사용자별 전사·피드백·연습 기록
 - `profiles` — 사용자 프로필 / 닉네임
