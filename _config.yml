@@ -1,37 +1,23 @@
-# === Theme ===
-remote_theme: raviriley/agency-jekyll-theme
-
-# === Site URL ===
 url: "https://minfy0-0.github.io"
 baseurl: ""
 
-# === Branding ===
-title: Minseo Kim | Data & Business Analytics
-email: minseo03070294@gmail.com
-description: "Data & Business Analytics portfolio connecting data, business context, and AI to better decisions."
-author: Minseo Kim
+title: "Minseo Kim | Data & Business Analytics"
+email: "minseo03070294@gmail.com"
+description: "Portfolio focused on data analytics, business intelligence, market analysis, and applied AI projects."
+author: "Minseo Kim"
+locale: "ko_KR"
 
-# === Locale ===
-locale: "ko"
-
-# === Analytics ===
 analytics:
-  google: G-NHHT43834D
-
-# === Collections ===
-collections:
-  portfolio:
+  google: "G-NHHT43834D"
 
 markdown: kramdown
+permalink: pretty
 
-# === Plugins ===
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# === Sections ===
-sections:
-  - about
-  - services
-  - timeline
-  - portfolio
+exclude:
+  - README.md
+  - LICENSE.txt
+  - screenshot.PNG
