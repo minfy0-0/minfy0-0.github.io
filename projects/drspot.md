@@ -2,16 +2,17 @@
 layout: case-study
 permalink: /projects/drspot/
 title: Dr. Spot · AI Skin Analysis
-eyebrow: DATA QUALITY & MODEL EVALUATION · 2025
-description: 피부 이미지 기반 질환 탐지·분류 프로젝트에서 데이터 품질, 평가 무결성, 모델 비교, 오류 분석을 중심으로 신뢰할 수 있는 분석 흐름을 만든 팀 프로젝트입니다.
+eyebrow: HEALTHCARE AI · MODEL EVALUATION · CLOUD · 2025
+description: 피부 병변 이미지를 YOLOv8로 탐지하고 EfficientNet-B4로 분류한 3인 팀 프로젝트입니다. 모델 성능 비교·오류 분석, YOLO 학습·검증, 추론 파이프라인 통합과 AWS 기반 서비스 구현에 참여했습니다.
 cover: /assets/img/portfolio/drspot-architecture.png
 cover_alt: Dr. Spot AWS 기반 서비스 아키텍처
 tags:
   - Python
   - PyTorch
+  - YOLOv8
+  - EfficientNet
   - AWS
   - Computer Vision
-  - Model Evaluation
 facts:
   - label: TRAINING
     value: AWS Bio Healthcare AI Academy · 865h
@@ -21,59 +22,86 @@ facts:
     value: 86.6% Accuracy · 0.974 AUC
 ---
 
-## 01. 문제 정의
+## 01. Project Overview
 
-피부 질환 이미지 분류에서 높은 정확도만으로 모델을 신뢰하기는 어렵습니다. 이미지 중복으로 학습·평가 데이터가 섞이거나, 클래스별 데이터 품질과 수량이 크게 다르면 성능 지표가 실제보다 높게 보일 수 있기 때문입니다.
+Dr. Spot은 피부 이미지를 입력하면 병변 영역을 탐지하고 질환 클래스를 분류해 결과를 제공하는 AI 웹서비스 프로젝트입니다. AWS Bio Healthcare AI Academy에서 3인 팀으로 진행했으며, 모델 실험에 그치지 않고 **이미지 업로드 → 병변 탐지 → 질환 분류 → 결과 제공**까지 하나의 서비스 흐름으로 연결하는 것을 목표로 했습니다.
 
-Dr. Spot에서는 모델 학습 자체뿐 아니라 **데이터셋의 무결성과 동일 기준의 모델 평가**에 집중했습니다.
+저는 프로젝트에서 **모델 성능 비교 및 오류 분석, YOLOv8 탐지 모델 학습·검증 지원, 하이퍼파라미터 튜닝, YOLOv8과 EfficientNet-B4 추론 파이프라인 통합 지원, AWS 배포 아키텍처 구현 과정**에 참여했습니다.
 
-> 핵심 과제는 “어떤 모델의 숫자가 가장 높은가?”가 아니라 “이 숫자를 믿을 수 있도록 데이터와 평가 구조가 설계되어 있는가?”였습니다.
+![Dr. Spot result]({{ '/assets/img/portfolio/drspot-result.png' | relative_url }})
 
-## 02. 데이터 정제와 누수 방지
+## 02. Team Data Pipeline
 
-원천 이미지 **37,961건**을 점검하면서 해시 기반 중복 검사를 적용했습니다. 이 과정에서 학습/평가 데이터 사이에 포함된 **2,700건 이상의 중복·누수 사례**를 제거해 평가 결과가 과대 추정되는 위험을 줄였습니다.
+프로젝트에서는 원천 피부 이미지 **37,961건**을 점검해 중복·품질 편차와 클래스 불균형을 정리하고, 최종 **25,813건**의 분석용 데이터셋을 구성했습니다. 해시 기반 중복 검사와 이미지 품질 보정, 해상도 통일, 클래스 균형 조정 등이 팀의 데이터 전처리 파이프라인에서 수행됐습니다.
 
-또한 이미지별 품질 편차를 줄이기 위해 다음 작업을 진행했습니다.
+이 데이터 품질 작업은 **팀 전체 프로젝트의 전처리 과정**이며, 아래의 `My Contribution`과는 구분해 표시했습니다. 모델 평가 단계에서는 정제된 데이터를 동일한 기준으로 비교할 수 있도록 평가 지표와 오류 패턴을 함께 확인했습니다.
 
-- 대비·밝기 등 이미지 품질 보정
-- 해상도 규격 통일
-- 중복 데이터 제거
-- 6개 클래스의 불균형을 약 3,000건 수준으로 조정
+## 03. Detection → Classification Architecture
 
-정제 후 분석용 데이터셋은 **25,813건**으로 구성했습니다.
+Dr. Spot은 탐지와 분류를 하나의 모델에 맡기지 않고 두 단계로 구성했습니다.
 
-## 03. 모델 비교 구조
+1. 사용자가 피부 이미지를 업로드합니다.
+2. **YOLOv8**이 이미지에서 병변 영역(ROI)을 탐지합니다.
+3. 탐지된 병변 이미지를 **EfficientNet-B4** 분류 모델로 전달합니다.
+4. 분류 결과를 Streamlit 화면에서 사용자에게 제공합니다.
 
-한 모델의 Accuracy만 보고 선택하지 않고, 동일한 기준에서 여러 후보 모델을 비교했습니다.
+![Dr. Spot architecture]({{ '/assets/img/portfolio/drspot-architecture.png' | relative_url }})
 
-비교 대상은 EfficientNet, DenseNet, ConvNeXt, Vision Transformer 등 **5개 후보 모델**이었고, 다음 **5개 KPI**를 함께 확인했습니다.
+저는 YOLOv8 탐지 모델의 학습·검증을 지원하고, 탐지 결과가 분류 모델 입력으로 이어지도록 **YOLOv8 → EfficientNet-B4 추론 파이프라인 통합**을 지원했습니다. 개별 모델의 성능뿐 아니라 모델 간 입력·출력 연결이 실제 서비스 흐름에서 정상적으로 이어지는지를 함께 확인했습니다.
+
+## 04. Model Evaluation
+
+분류 모델은 EfficientNet, DenseNet, ConvNeXt, Vision Transformer 등 여러 후보를 비교했습니다. 하나의 Accuracy 수치만으로 모델을 판단하지 않고 다음 지표를 함께 확인했습니다.
 
 | Metric | 확인 목적 |
 | --- | --- |
 | Accuracy | 전체 분류 정확도 |
-| AUC | 클래스 구분 능력 |
 | F1-score | Precision과 Recall의 균형 |
-| Precision | 오탐 관점 성능 |
-| Recall | 미탐 관점 성능 |
+| AUC | 클래스 구분 성능 |
+| Confusion Matrix | 클래스별 오분류 패턴 |
+| ROC Curve | 분류 임계값에 따른 성능 변화 |
 
-Confusion Matrix와 ROC Curve를 함께 확인해 단순 평균 지표가 가리는 **클래스별 혼동 패턴**도 분석했습니다.
+저는 모델별 성능 지표를 시각화하고 비교했으며, Confusion Matrix와 ROC Curve를 활용해 평균 지표만으로는 보이지 않는 오류 유형을 확인했습니다.
 
-## 04. 결과와 오류 분석
+최종적으로 EfficientNet-B4가 다음의 검증 성능을 기록했습니다.
 
-최종적으로 EfficientNet-B4가 **검증 Accuracy 86.6%, F1-score 86.5%, AUC 0.974**로 가장 안정적인 성능을 보였습니다.
+| Metric | Result |
+| --- | ---: |
+| Validation Accuracy | **86.6%** |
+| F1-score | **86.5%** |
+| AUC | **0.974** |
 
-하지만 결과 수치만 정리하지 않고, 시각적으로 유사한 일부 병변 클래스 사이의 혼동을 확인했습니다. 이를 통해 데이터 증강만으로 해결하기 어려운 한계가 있으며, 향후에는 환자 메타데이터 등 추가 정보를 결합하는 방향도 필요하다고 판단했습니다.
+## 05. Error Analysis
 
-## 05. 서비스 흐름 연결
+모델의 최종 점수만 보고 끝내지 않고 클래스별 예측 결과를 함께 확인했습니다. Confusion Matrix를 통해 일부 피부 병변이 다른 클래스와 혼동되는 패턴을 확인하고, ROC Curve와 함께 모델이 어떤 구간에서 분류 성능이 달라지는지 검토했습니다.
 
-팀은 YOLOv8 탐지 모델과 EfficientNet-B4 분류 모델을 연결해 **이미지 업로드 → 병변 탐지 → 질환 분류 → 결과 제공** 흐름을 구성했습니다.
+이 과정을 통해 **정확도 하나만으로 모델을 선택하기보다 여러 지표와 실제 오분류 패턴을 함께 봐야 한다는 점**을 확인했습니다. 분석 결과는 팀원들과 공유하며 모델 개선 방향을 검토했습니다.
 
-저는 데이터 전처리·모델 평가·오류 분석을 중심으로 참여했고, YOLOv8 학습·검증 및 YOLO + EfficientNet 파이프라인 통합도 지원했습니다. 최종 서비스는 Streamlit UI와 AWS 기반 배포 구조로 연결했습니다.
+## 06. My Contribution
 
-![Dr. Spot result]({{ '/assets/img/portfolio/drspot-result.png' | relative_url }})
+공식 프로젝트 역할 기준으로 제가 직접 맡거나 지원한 영역은 다음과 같습니다.
 
-## What I learned
+- **YOLOv8 탐지 모델 학습·검증 지원**
+- **하이퍼파라미터 튜닝** 및 모델 실험 지원
+- EfficientNet 계열을 포함한 분류 모델의 **성능 지표 시각화·비교**
+- Confusion Matrix · ROC Curve 기반 **오류 분석**
+- **YOLOv8 → EfficientNet-B4 추론 파이프라인 통합 지원**
+- **AWS 배포 아키텍처** 구성 및 서비스 연결 과정 참여
+- Git · Notion · Slack을 활용한 3인 팀 협업 및 실험 결과 공유
 
-- 모델의 신뢰도는 학습 기법보다 먼저 **데이터 누수와 품질 관리**에서 결정될 수 있다는 점
-- 하나의 KPI보다 **여러 평가 지표와 오류 행렬을 함께 보는 방식**이 더 정확한 판단을 만든다는 점
-- 분석 결과가 실제 서비스로 이어지려면 모델 성능뿐 아니라 **입력–추론–결과 전달의 전체 흐름**을 고려해야 한다는 점
+데이터 중복 제거와 클래스 균형 조정은 프로젝트의 데이터 파이프라인에는 포함되지만, 제 개인 기여로 표시하지 않았습니다.
+
+## 07. AWS 기반 서비스 연결
+
+모델 결과를 실제 웹 화면까지 전달하기 위해 Streamlit UI와 AWS 기반 배포 구조를 구성했습니다. 프로젝트에서는 **SageMaker Endpoint**를 통한 모델 서빙과 S3, ECR, ECS Fargate, ALB, WAF 등을 활용한 서비스 구조를 경험했습니다.
+
+제가 이 프로젝트에서 중요하게 본 부분은 모델 파일을 만드는 것에서 끝나는 것이 아니라, 사용자의 이미지 입력이 탐지·분류를 거쳐 결과 화면까지 전달되는 전체 경로였습니다. 이를 통해 모델 개발과 서비스 배포가 별개의 작업이 아니라 하나의 제품 흐름으로 연결돼야 한다는 점을 배웠습니다.
+
+## What I Learned
+
+- 모델을 평가할 때 Accuracy 하나보다 **F1-score, AUC, Confusion Matrix, ROC Curve를 함께 보는 이유**를 실제 실험으로 확인했습니다.
+- 객체 탐지와 이미지 분류 모델을 연결하며 **모델 간 입력·출력 인터페이스와 추론 흐름**의 중요성을 경험했습니다.
+- AI 모델을 Streamlit과 AWS 서비스 구조에 연결하며 **모델 성능 → 추론 파이프라인 → 사용자 결과 화면**까지 이어지는 전체 흐름을 이해했습니다.
+- 3인 팀으로 실험 결과와 오류 원인을 공유하면서, 같은 지표를 보고도 서로 다른 해석이 나올 수 있어 **결과를 근거와 함께 설명하는 협업 방식**이 중요하다는 점을 배웠습니다.
+
+[GitHub repository](https://github.com/minfy0-0/say_capybara)
