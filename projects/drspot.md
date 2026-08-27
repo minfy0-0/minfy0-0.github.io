@@ -72,9 +72,13 @@ YOLOv8 학습에서는 Box Loss, Classification Loss, DFL Loss와 함께 Precisi
 
 학습이 진행되면서 Precision과 mAP 지표는 개선됐지만, Recall은 약 **0.4 수준에서 수렴**해 일부 실제 병변을 놓치는 한계도 확인했습니다. 단순히 학습이 끝났다는 사실보다 **탐지 단계가 전체 서비스의 병목이 될 수 있다는 점**을 확인하고 통합 파이프라인의 Fail-Safe 설계에 반영했습니다.
 
+![YOLOv8 training and validation results]({{ '/assets/img/portfolio/drspot-yolo-training.png' | relative_url }})
+
 ## 06. Classification Model Evaluation
 
 팀은 다중 클래스 피부 병변 분류를 위해 5개 후보 모델을 동일한 검증 기준으로 비교했습니다.
+
+![Classification model comparison]({{ '/assets/img/portfolio/drspot-model-comparison.png' | relative_url }})
 
 | Model | Validation Accuracy | F1-score | AUC |
 | --- | ---: | ---: | ---: |
