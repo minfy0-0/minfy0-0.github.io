@@ -34,11 +34,7 @@ ASK1(MAP3K5) 활성 예측 경진대회 경험을 바탕으로, 여러 출처의
 다른 화합물의 임상 이력은 조사 범위 밖입니다. 이 프로젝트는 신약 후보나 임상 개발 성공 가능성을 예측하지 않습니다.
 
 
-<!-- Image asset slot: /assets/img/portfolio/ask1-overview.png -->
-<figure class="ask1-image-slot" style="margin:32px 0;">
-  <div aria-hidden="true" style="width:100%;aspect-ratio:16/9;background:#f3f5f7;border:1px dashed #cbd2d9;border-radius:8px;"></div>
-  <figcaption style="margin-top:10px;color:#657080;font-size:14px;">ASK1 활성 탐색과 Selonsertib 임상시험 연결 사례</figcaption>
-</figure>
+<figure style="margin:32px 0;"><img src="{{ '/assets/img/portfolio/ask1-overview.svg' | relative_url }}" alt="ASK1 활성 탐색 실제 화면: 이름·동의어 검색, 유형 필터와 활성 레코드 목록" loading="lazy" style="width:100%;height:auto;border:1px solid #d7dfe6;border-radius:8px;"><figcaption>ASK1 활성 탐색 실제 화면: 이름·동의어 검색, 유형 필터와 활성 레코드 목록</figcaption></figure>
 
 ## 02. 수집과 Snowflake 계층 구성
 
@@ -56,11 +52,7 @@ STAGING과 MART는 데이터를 별도로 복사한 테이블이 아닌 조회 �
 화면은 2026년 9월 7–8일 수집하고 9월 11일 검증·내보낸 스냅샷을 사용합니다. 실시간 조회나 공개 배포된 웹서비스는 아닙니다.
 
 
-<!-- Image asset slot: /assets/img/portfolio/ask1-architecture.png -->
-<figure class="ask1-image-slot" style="margin:32px 0;">
-  <div aria-hidden="true" style="width:100%;aspect-ratio:16/9;background:#f3f5f7;border:1px dashed #cbd2d9;border-radius:8px;"></div>
-  <figcaption style="margin-top:10px;color:#657080;font-size:14px;">공개 API에서 RAW 보존, 정제·마트 조회, 품질 검증으로 이어지는 데이터 흐름</figcaption>
-</figure>
+<figure style="margin:32px 0;"><img src="{{ '/assets/img/portfolio/ask1-architecture.svg' | relative_url }}" alt="공개 API → 원본 보존 → 정제·마트 뷰 → 스냅샷 조회 구조" loading="lazy" style="width:100%;height:auto;border:1px solid #d7dfe6;border-radius:8px;"><figcaption>공개 API → 원본 보존 → 정제·마트 뷰 → 스냅샷 조회 구조</figcaption></figure>
 
 ## 03. 수집 누락과 재적재 검증
 
@@ -86,11 +78,7 @@ Selonsertib의 ChEMBL ID는 **CHEMBL3916717**이며 수집한 ASK1 활성 레코
 두 후보는 **EVIDENCE_MATCHED / 의미 검토 PENDING**으로 별도 보관했습니다. 원문 대조와 의미 판단을 구분하고 최종 매핑에는 반영하지 않았습니다.
 
 
-<!-- Image asset slot: /assets/img/portfolio/ask1-evidence.png -->
-<figure class="ask1-image-slot" style="margin:32px 0;">
-  <div aria-hidden="true" style="width:100%;aspect-ratio:16/9;background:#f3f5f7;border:1px dashed #cbd2d9;border-radius:8px;"></div>
-  <figcaption style="margin-top:10px;color:#657080;font-size:14px;">미연결 약어의 공식 PDF 근거와 검토 상태</figcaption>
-</figure>
+<figure style="margin:32px 0;"><img src="{{ '/assets/img/portfolio/ask1-evidence.svg' | relative_url }}" alt="SEL 약어 검토 기록: 공식 PDF 인용과 페이지, PENDING 및 최종 매핑 미반영" loading="lazy" style="width:100%;height:auto;border:1px solid #d7dfe6;border-radius:8px;"><figcaption>SEL 약어 검토 기록: 공식 PDF 인용과 페이지, PENDING 및 최종 매핑 미반영</figcaption></figure>
 
 ## 05. 탐색 화면에서 수정한 판단
 
