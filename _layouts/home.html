@@ -12,7 +12,7 @@ permalink: /
       <div class="hero-copy">
         <p class="hero-kicker">MINSEO KIM · AI · DATA · PRODUCT</p>
         <h1>데이터를 보고 문제를 찾고,<br><span class="hero-highlight">서비스로 구현</span>합니다.</h1>
-        <p class="hero-lead">생명공학을 전공하며 의료·바이오 데이터를 다뤘고, 모델 평가부터 웹서비스 개발과 AWS 배포까지 직접 경험했습니다. 최근에는 AI Agent를 활용해 영어 말하기 연습 서비스를 개발하고 있습니다.</p>
+        <p class="hero-lead">생명공학을 전공하며 의료·바이오 데이터를 다뤘고, 모델 평가부터 웹서비스 개발과 AWS 배포까지 직접 경험했습니다. 최근에는 AI를 활용한 영어 말하기 연습 서비스와 Python·Snowflake 기반 바이오 데이터 통합 프로젝트를 진행했습니다.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#work">프로젝트 보기 <span>↓</span></a>
           <a class="btn btn-secondary" href="mailto:{{ site.email }}">Contact <span>↗</span></a>
@@ -48,6 +48,17 @@ permalink: /
       </div>
 
       <div class="work-list">
+
+        <article class="mini-card">
+          <span class="meta">DATA ENGINEERING · 2026</span>
+          <h3>ASK1 공개 데이터 통합 파이프라인</h3>
+          <p>ChEMBL·Open Targets·ClinicalTrials.gov를 Python과 Snowflake로 통합했습니다. ASK1 활성 탐색과 Selonsertib 임상시험 연결 사례를 구분하고, 재적재·품질검사·매칭 실패 근거를 검증했습니다.</p>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">Snowflake</span><span class="tag">SQL</span><span class="tag">Streamlit</span></div>
+          <div class="mini-proof"><strong>4,465</strong> RAW records · <strong>43</strong> offline tests passed</div>
+          <p>Selonsertib 수집 시험 11건 중 9건 매칭. 다른 화합물의 임상 이력은 조사 범위 밖입니다.</p>
+          <a class="case-link" href="{{ '/projects/ask1-pipeline/' | relative_url }}">Case study 보기 <span>→</span></a>
+        </article>
+
         <article class="project-card project-featured">
           <div class="project-visual product-shot dark">
             <img src="{{ '/assets/img/portfolio/opic-screen.png' | relative_url }}" alt="OPIc AI Speaking Practice 실제 서비스 화면">
@@ -179,7 +190,7 @@ permalink: /
           <div class="skill-card"><span class="num">01</span><h3>AI Product</h3><p>TypeScript · Next.js · React · Supabase · Prompt Engineering · AI-assisted Development</p></div>
           <div class="skill-card"><span class="num">02</span><h3>AI & ML</h3><p>Python · PyTorch · YOLOv8 · EfficientNet · Model Evaluation · Confusion Matrix · ROC/AUC · Error Analysis</p></div>
           <div class="skill-card"><span class="num">03</span><h3>Cloud & Dev</h3><p>AWS SageMaker · S3 · ECS/ECR · Streamlit · Git · GitHub · Vercel</p></div>
-          <div class="skill-card"><span class="num">04</span><h3>Data & BI</h3><p>SQL · Power BI · Power Query · DAX · Data Cleaning · KPI Reporting · Data Visualization</p></div>
+          <div class="skill-card"><span class="num">04</span><h3>Data & BI</h3><p>SQL · Snowflake · Public API Integration · Power BI · Power Query · DAX · Data Cleaning · KPI Reporting · Data Visualization</p></div>
         </div>
       </div>
     </div>
