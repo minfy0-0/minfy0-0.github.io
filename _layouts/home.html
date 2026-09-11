@@ -49,14 +49,23 @@ permalink: /
 
       <div class="work-list">
 
-        <article class="mini-card">
-          <span class="meta">DATA ENGINEERING · 2026</span>
-          <h3>ASK1 공개 데이터 통합 파이프라인</h3>
-          <p>ChEMBL·Open Targets·ClinicalTrials.gov를 Python과 Snowflake로 통합했습니다. ASK1 활성 탐색과 Selonsertib 임상시험 연결 사례를 구분하고, 재적재·품질검사·매칭 실패 근거를 검증했습니다.</p>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag">Snowflake</span><span class="tag">SQL</span><span class="tag">Streamlit</span></div>
-          <div class="mini-proof"><strong>4,465</strong> RAW records · <strong>43</strong> offline tests passed</div>
-          <p>Selonsertib 수집 시험 11건 중 9건 매칭. 다른 화합물의 임상 이력은 조사 범위 밖입니다.</p>
-          <a class="case-link" href="{{ '/projects/ask1-pipeline/' | relative_url }}">Case study 보기 <span>→</span></a>
+        <article class="project-card">
+          <a class="project-visual contain" href="{{ '/projects/ask1-pipeline/' | relative_url }}" aria-label="ASK1 데이터 통합 파이프라인 상세 보기">
+            <img src="{{ '/assets/img/portfolio/ask1-architecture.svg' | relative_url }}" alt="ASK1 공개 API 수집, Snowflake RAW·STAGING·MART, 품질 검증과 Streamlit 조회 구조" width="1200" height="700" loading="lazy" style="width:100%;height:auto;object-fit:contain;">
+          </a>
+          <div class="project-body">
+            <span class="project-index">01 · DATA ENGINEERING · 2026</span>
+            <h3>ASK1 공개 데이터 통합 파이프라인</h3>
+            <p>ChEMBL·Open Targets·ClinicalTrials.gov를 Python과 Snowflake로 통합했습니다. ASK1 활성 탐색과 Selonsertib 임상시험 연결 사례를 구분하고, 재적재·품질검사·매칭 실패 근거를 검증했습니다.</p>
+            <div class="project-tags"><span class="tag">Python</span><span class="tag">Snowflake</span><span class="tag">SQL</span><span class="tag">Streamlit</span></div>
+            <div class="project-proof">
+              <div><strong>4,465</strong><span>RAW records</span></div>
+              <div><strong>43</strong><span>오프라인 테스트 통과</span></div>
+              <div><strong>9 / 11</strong><span>Selonsertib 수집 시험 매칭</span></div>
+            </div>
+            <p>다른 화합물의 임상 이력은 조사 범위 밖입니다.</p>
+            <a class="case-link" href="{{ '/projects/ask1-pipeline/' | relative_url }}">Case study 보기 <span>→</span></a>
+          </div>
         </article>
 
         <article class="project-card project-featured">
@@ -64,7 +73,7 @@ permalink: /
             <img src="{{ '/assets/img/portfolio/opic-screen.png' | relative_url }}" alt="OPIc AI Speaking Practice 실제 서비스 화면">
           </div>
           <div class="project-body">
-            <span class="project-index">01 · AI-NATIVE WEB PRODUCT · 2026</span>
+            <span class="project-index">02 · AI-NATIVE WEB PRODUCT · 2026</span>
             <h3>OPIc AI Speaking Practice Web</h3>
             <p>OPIc를 공부하면서 여러 도구를 오가야 했던 불편을 줄이기 위해 직접 만든 웹서비스입니다. 문제은행, 배경 설문 기반 모의고사, 음성 질문, 녹음·전사, 한국어 AI 피드백, 사용자별 스크립트와 연습 기록을 구현했습니다.</p>
             <div class="project-tags">
@@ -87,7 +96,7 @@ permalink: /
             <img src="{{ '/assets/img/portfolio/drspot-screen.png' | relative_url }}" alt="Dr. Spot AI 피부 분석 실제 결과 화면">
           </div>
           <div class="project-body">
-            <span class="project-index">02 · HEALTHCARE AI & CLOUD · 2025</span>
+            <span class="project-index">03 · HEALTHCARE AI & CLOUD · 2025</span>
             <h3>Dr. Spot · AI Skin Analysis</h3>
             <p>피부 병변 이미지 프로젝트에서 YOLOv8 탐지 모델을 학습·검증하고, 분류 모델의 성능과 오류를 비교했습니다. 이후 YOLOv8과 EfficientNet-B4 추론 파이프라인을 통합하고 AWS 배포 아키텍처 구현을 맡았습니다.</p>
             <div class="project-tags">
