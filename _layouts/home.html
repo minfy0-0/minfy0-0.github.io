@@ -56,14 +56,14 @@ permalink: /
           <div class="project-body">
             <span class="project-index">01 · DATA ENGINEERING · 2026</span>
             <h3>ASK1 공개 데이터 통합 파이프라인</h3>
-            <p>ChEMBL·Open Targets·ClinicalTrials.gov를 Python과 Snowflake로 통합했습니다. ASK1 활성 탐색과 Selonsertib 임상시험 연결 사례를 구분하고, 재적재·품질검사·매칭 실패 근거를 검증했습니다.</p>
+            <p>흩어진 ASK1 연구 자료를 한곳에서 살펴보기 위해 세 공개 API를 Python과 Snowflake로 연결했습니다. 데이터를 다시 넣어도 중복이 생기지 않는지 확인하고, 이름이 달라 연결되지 않은 임상시험은 원본 문서까지 찾아봤습니다.</p>
             <div class="project-tags"><span class="tag">Python</span><span class="tag">Snowflake</span><span class="tag">SQL</span><span class="tag">Streamlit</span></div>
             <div class="project-proof">
               <div><strong>4,465</strong><span>RAW records</span></div>
               <div><strong>43</strong><span>오프라인 테스트 통과</span></div>
               <div><strong>9 / 11</strong><span>Selonsertib 수집 시험 매칭</span></div>
             </div>
-            <p>다른 화합물의 임상 이력은 조사 범위 밖입니다.</p>
+            <p>임상시험 연결은 Selonsertib을 사례로 살펴봤습니다. 다른 화합물의 임상 이력은 이번에 조사하지 않았습니다.</p>
             <a class="case-link" href="{{ '/projects/ask1-pipeline/' | relative_url }}">Case study 보기 <span>→</span></a>
           </div>
         </article>
