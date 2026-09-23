@@ -21,14 +21,6 @@ facts:
 permalink: /projects/ask1-pipeline/
 ---
 
-<div class="case-summary">
-<h2>프로젝트 요약</h2>
-<p><strong>개인 프로젝트 · 공개 API 통합·검증</strong></p>
-<p><strong>내 역할</strong> — 세 API의 수집 범위를 정하고 Python·SQL·Snowflake로 수집·정제·조회 흐름을 구성했습니다. Codex를 활용해 개발하고 수집 결과와 테스트를 확인했습니다.</p>
-<p><strong>핵심 판단</strong> — 조회 결과에서 미조사와 0건을 구분했습니다. 연결 근거가 확인되어도 의미 검토가 끝나지 않은 기록은 PENDING으로 남겨 최종 매핑과 분리했습니다.</p>
-<p><strong>확인 결과</strong> — 2026.09.11 기준 43개 오프라인 테스트 통과. 같은 데이터 재적재 시 신규 0건·변경 0건·동일 4,465건을 확인했습니다. 로컬 스냅샷 조회 프로젝트입니다.</p>
-</div>
-
 ## 흩어진 연구 자료를 함께 볼 수 있을까
 
 ASK1(MAP3K5) 활성 예측 경진대회를 경험한 뒤, 실험 데이터에 관련 연구 자료를 함께 붙여보고 싶었습니다. ChEMBL에는 화합물과 활성 데이터가, Open Targets에는 표적의 질환 연관 근거가, ClinicalTrials.gov에는 임상시험 기록이 있었습니다. 이 자료를 한곳에 모으는 것부터 시작했습니다.

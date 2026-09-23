@@ -1,8 +1,8 @@
 url: "https://naver-cloud-api-portfolio.minseo03070294.chatgpt.site"
 baseurl: ""
 
-title: "김민서 | Open API·AI 서비스 기획 포트폴리오"
-description: "AI API 연계 서비스, 공개 데이터 통합, 시장 분석과 클라우드 구현 경험을 정리한 NAVER Cloud 지원 포트폴리오."
+title: "Minseo Kim | AI · Data · Cloud"
+description: "Portfolio covering AI web development, healthcare AI model evaluation, AWS deployment, and data analysis projects."
 author: "Minseo Kim"
 locale: "ko_KR"
 
@@ -17,6 +17,7 @@ exclude:
   - scripts
   - dist
   - requirements-submission.txt
+  - SUBMISSION.md
   - README.md
   - LICENSE.txt
   - screenshot.PNG

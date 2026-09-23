@@ -1,8 +1,8 @@
 """Export the submission's allowlisted Jekyll content to standalone static HTML.
 
 No source files, contact templates, or unrelated assets enter the output.
-The exporter supports only literal relative_url expressions and the two shared
-includes used in the homepage; unresolved Liquid fails the build.
+The original Liquid templates are rendered directly to preserve their markup.
+Unresolved Liquid fails the build.
 """
 from pathlib import Path
 from html import escape
@@ -11,6 +11,7 @@ from urllib.parse import urlsplit, unquote
 import argparse, re, shutil
 import markdown
 import yaml
+from liquid import Environment, FileSystemLoader
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
@@ -29,15 +30,14 @@ def read(path): return (ROOT / path).read_text(encoding='utf-8')
 def frontmatter(text):
     _, meta, body = text.split('---', 2)
     return yaml.safe_load(meta), body.strip()
-def render(text):
-    text = re.sub(r"{{\s*'([^']+)'\s*\|\s*relative_url\s*}}", lambda m: m[1], text)
-    for name in ('site-nav.html', 'site-footer.html'):
-        marker = '{% include ' + name + ' %}'
-        if marker in text:
-            text = text.replace(marker, render(read('_includes/' + name)))
-    if '{{' in text or '{%' in text:
+liquid = Environment(loader=FileSystemLoader(str(ROOT / '_includes')))
+liquid.add_filter('relative_url', lambda value: value)
+def render(text, **context):
+    text = re.sub(r'{% include ([\w.-]+) %}', r'{% include "\1" %}', text)
+    result = liquid.from_string(text).render(**context)
+    if '{{' in result or '{%' in result:
         raise ValueError('Unsupported Liquid in submission content')
-    return text
+    return result
 
 nav = render(read('_includes/site-nav.html'))
 footer = render(read('_includes/site-footer.html'))
@@ -45,7 +45,7 @@ config = yaml.safe_load(read('_config.yml'))
 
 def page(title, description, body):
     return f'''<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#ffffff"><title>{escape(title)}</title><meta name="description" content="{escape(description, quote=True)}"><link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+KR:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/portfolio.css"><link rel="stylesheet" href="/assets/css/portfolio-overrides.css"><link rel="stylesheet" href="/assets/css/submission.css"></head><body>{body}<script src="/assets/js/portfolio.js" defer></script></body></html>'''
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#ffffff"><title>{escape(title)}</title><meta name="description" content="{escape(description, quote=True)}"><link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+KR:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/portfolio.css"><link rel="stylesheet" href="/assets/css/portfolio-overrides.css"><link rel="stylesheet" href="/assets/css/naver-theme.css"></head><body>{body}<script src="/assets/js/portfolio.js" defer></script></body></html>'''
 
 def write(path, text):
     dest = OUT / path
@@ -54,17 +54,12 @@ def write(path, text):
 
 _, home = frontmatter(read('_layouts/home.html'))
 write('index.html', page(config['title'], config['description'], render(home)))
-cover_override = {'opic-coach':'opic-screen.png', 'seoul-cafe':'cafe-screen.png', 'drspot':'drspot-screen.png'}
+_, case_template = frontmatter(read('_layouts/case-study.html'))
 for slug in ('opic-coach', 'ask1-pipeline', 'seoul-cafe', 'drspot'):
     data, source = frontmatter(read('projects/' + slug + '.md'))
     body = markdown.markdown(render(source), extensions=['tables','fenced_code','sane_lists'])
-    tags = ''.join(f'<span class="tag">{escape(str(tag))}</span>' for tag in data['tags'])
-    facts = ''.join(f'<div class="case-fact"><span>{escape(str(fact["label"]))}</span><strong>{escape(str(fact["value"]))}</strong></div>' for fact in data['facts'])
-    cover = ''
-    if slug in cover_override:
-        cover = f'<figure class="case-cover"><img src="/assets/img/portfolio/{cover_override[slug]}" alt="{escape(data["title"], quote=True)} 프로젝트 화면"></figure>'
-    main = f'''{nav}<main class="case-page" id="main"><section class="case-hero"><div class="shell"><a class="back-link" href="/#work">← 프로젝트 목록</a><div class="case-hero-grid"><div><p class="eyebrow">{escape(data['eyebrow'])}</p><h1>{escape(data['title'])}</h1><p class="lead">{escape(data['description'])}</p><div class="project-tags">{tags}</div></div><div class="case-facts">{facts}</div></div>{cover}</div></section><article class="case-content">{body}</article></main>{footer}'''
-    write('projects/' + slug + '/index.html', page(data['title']+' | 김민서 포트폴리오', data['description'], main))
+    main = render(case_template, page=data, content=body, site=config)
+    write('projects/' + slug + '/index.html', page(data['title']+' | '+config['title'], data['description'], main))
 write('404.html', page('페이지를 찾을 수 없습니다', '지원 포트폴리오', nav+'<main id="main" class="case-page"><section class="case-hero"><div class="shell"><h1>페이지를 찾을 수 없습니다.</h1><p><a class="btn btn-primary" href="/">포트폴리오 첫 화면으로</a></p></div></section></main>'+footer))
 write('robots.txt', 'User-agent: *\nDisallow: /\n')
 
