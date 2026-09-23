@@ -16,15 +16,26 @@
     toggle.addEventListener('click', () => {
       const open = body.classList.toggle('nav-open');
       toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
     });
 
     nav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         body.classList.remove('nav-open');
         toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', '메뉴 열기');
       });
     });
   }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && body.classList.contains('nav-open')) {
+      body.classList.remove('nav-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      toggle?.setAttribute('aria-label', '메뉴 열기');
+      toggle?.focus();
+    }
+  });
 
   const revealNodes = [...document.querySelectorAll('.reveal')];
   if ('IntersectionObserver' in window && revealNodes.length) {

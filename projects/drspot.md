@@ -22,6 +22,14 @@ facts:
     value: 86.6% Accuracy · 0.974 AUC
 ---
 
+<div class="case-summary">
+<h2>프로젝트 요약</h2>
+<p><strong>3인 팀 프로젝트 · AI·클라우드 구현</strong></p>
+<p><strong>내 역할</strong> — YOLOv8 학습·검증, 하이퍼파라미터 튜닝, 성능·오류 분석을 맡았습니다. 탐지·분류의 추론 파이프라인과 AWS 배포 구조를 구현했습니다.</p>
+<p><strong>핵심 판단</strong> — 탐지한 영역을 분류 모델로 넘기고, 탐지 실패 시 원본 이미지로 분류하는 예외 경로를 구성했습니다. 평균 성능과 함께 클래스별 오류·Recall 한계를 확인했습니다.</p>
+<p><strong>확인 결과</strong> — 팀의 EfficientNet-B4 검증 결과는 Accuracy 86.6%·AUC 0.974였습니다. 웹서비스를 ECS Fargate와 SageMaker Endpoint에 연결했으며, 해당 수치는 임상 성능을 의미하지 않습니다.</p>
+</div>
+
 ## 피부 이미지에서 병변을 찾고, 결과를 보여주기까지
 
 AWS Bio Healthcare AI Academy에서 3인 팀으로 피부 병변 탐지·분류 서비스를 만들었습니다. 사용자가 이미지를 올리면 병변 위치를 찾고, 해당 영역을 분류해 화면에 보여주는 방식입니다. 모델을 학습하는 데서 시작해 두 모델을 연결하고 AWS에 배포하는 과정까지 진행했습니다.
@@ -123,5 +131,3 @@ Streamlit 앱은 Docker 이미지로 빌드해 ECR에 저장한 뒤 ECS Fargate�
 - Accuracy뿐 아니라 F1-score, AUC, Confusion Matrix, ROC Curve를 함께 보며 **오류의 원인을 설명하는 평가 방식**을 익혔습니다.
 - Recall 한계와 클래스 간 혼동을 확인하고 **Fail-Safe와 개선 방향**으로 연결했습니다.
 - SageMaker 모델 서빙부터 ECS Fargate 웹서비스까지 연결하며 **AI 모델 → 추론 파이프라인 → 사용자 화면 → 클라우드 인프라**의 전체 구조를 경험했습니다.
-
-[GitHub repository](https://github.com/minfy0-0/say_capybara)
