@@ -1,0 +1,30 @@
+/* Restrained NAVER accents. Original layout, type, spacing and screenshots remain intact. */
+:root {
+  --ink: #1c2220;
+  --ink-soft: #414946;
+  --muted: #69716d;
+  --line: #e5e9e6;
+  --surface: #f7f8f7;
+  --surface-blue: #f4f7f5;
+  --blue: #008542;
+  --blue-dark: #007a3d;
+  --navy: #1c2220;
+}
+.hero { background: linear-gradient(90deg, #ffffff 0%, #ffffff 71%, #f5f7f6 71%, #f5f7f6 100%); }
+.brand span { color: #03c75a; }
+.hero-highlight { color: var(--ink); }
+.hero-kicker { color: var(--muted); }
+.hero-profile { background: #1c2220; color: #fff; box-shadow: 0 12px 32px rgba(28,34,32,.08); }
+.profile-label { color: #03c75a; }
+.profile-row span { color: #aeb8b2; }
+.profile-row strong { color: #f5f7f6; }
+.profile-row { border-bottom-color: rgba(255,255,255,.12); }
+.btn-primary { background: var(--navy); border-color: var(--navy); color: #fff; }
+.btn-primary span { color: #03c75a; }
+.btn-primary:hover { background: #303a34; border-color: #303a34; }
+.project-featured { border-color: var(--line); }
+.case-link { color: var(--ink); }
+.case-link span { color: var(--blue); }
+.case-link:hover { color: var(--blue-dark); }
+.footer-grid .eyebrow { color: #03c75a; }
+@media (max-width: 980px) { .hero { background: #fff; } }

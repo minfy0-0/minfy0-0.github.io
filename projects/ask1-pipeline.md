@@ -2,7 +2,7 @@
 layout: case-study
 title: ASK1 공개 데이터 통합 파이프라인
 eyebrow: DATA ENGINEERING · 2026
-description: 흩어져 있는 ASK1 연구 데이터를 한곳에서 살펴보기 위해 시작했습니다. 세 공개 API를 Snowflake에 연결하고, 데이터가 빠지거나 잘못 연결되는 지점을 확인하며 수집·검증 과정을 다듬었습니다.
+description: 세 공개 API의 ASK1 연구 자료를 Snowflake에 통합하고 원본 보존·정제·연결 기준을 정리했습니다. 수집 누락과 재적재 결과를 검증하고, 출처별 수집 범위와 검토 상태가 드러나도록 조회 화면을 개선했습니다.
 tags:
   - Python
   - Snowflake
@@ -25,7 +25,9 @@ permalink: /projects/ask1-pipeline/
 
 ASK1(MAP3K5) 활성 예측 경진대회를 경험한 뒤, 실험 데이터에 관련 연구 자료를 함께 붙여보고 싶었습니다. ChEMBL에는 화합물과 활성 데이터가, Open Targets에는 표적의 질환 연관 근거가, ClinicalTrials.gov에는 임상시험 기록이 있었습니다. 이 자료를 한곳에 모으는 것부터 시작했습니다.
 
-Python으로 세 API를 연결하고 Snowflake에 원본을 보관했습니다. 수집한 데이터는 다음과 같습니다.
+조회 결과에서 원본과 연결 근거를 다시 확인할 수 있도록 Python으로 세 API를 연결하고 Snowflake에 원본을 보관했습니다. 수집·정제·검증과 Streamlit 조회 화면을 구성하며, **출처별 수집 범위와 연결 여부를 구분하는 기준**도 함께 정리했습니다.
+
+수집한 데이터는 다음과 같습니다.
 
 | 출처 | 수집한 자료 |
 | --- | --- |
@@ -37,7 +39,7 @@ Python으로 세 API를 연결하고 Snowflake에 원본을 보관했습니다. 
 
 <figure style="margin:32px 0;"><img src="{{ '/assets/img/portfolio/ask1-overview.svg' | relative_url }}" alt="ASK1 활성 탐색 실제 화면: 이름·동의어 검색, 유형 필터와 활성 레코드 목록" loading="lazy" style="width:100%;height:auto;border:1px solid #d7dfe6;border-radius:8px;"><figcaption>ASK1 활성 탐색 실제 화면: 이름·동의어 검색, 유형 필터와 활성 레코드 목록</figcaption></figure>
 
-## 원본을 남겨야 다시 확인할 수 있었습니다
+## 원본 보존·정제·조회를 나눠 추적 가능한 구조로 만들었습니다
 
 정제한 결과가 이상할 때 어디서 달라졌는지 되짚을 수 있도록, API 응답을 JSONL과 Snowflake RAW에 보관했습니다. 그 위에 이름·단위를 정리하는 STAGING 뷰와 조회 목적에 맞게 연결하는 MART 뷰를 두었습니다.
 
@@ -55,7 +57,7 @@ STAGING과 MART는 데이터를 복사해 쌓는 대신 원본을 조회하는 �
 
 <figure style="margin:32px 0;"><img src="{{ '/assets/img/portfolio/ask1-architecture.svg' | relative_url }}" alt="공개 API → 원본 보존 → 정제·마트 뷰 → 스냅샷 조회 구조" loading="lazy" style="width:100%;height:auto;border:1px solid #d7dfe6;border-radius:8px;"><figcaption>공개 API → 원본 보존 → 정제·마트 뷰 → 스냅샷 조회 구조</figcaption></figure>
 
-## 데이터를 모은 뒤, 빠진 값과 재실행 결과를 확인했습니다
+## 수집 누락과 반복 적재를 검증 기준으로 확인했습니다
 
 처음에는 IC50이 수집 제한을 모두 채우면서 Ki가 빠졌습니다. Codex와 코드를 살펴보니 두 유형에 하나의 제한을 적용하고 있었습니다. 유형별로 제한과 페이지네이션을 나누고, 회귀 테스트와 실제 수집 결과에서 **Ki 91건**이 들어오는 것을 확인했습니다.
 
@@ -84,7 +86,7 @@ Selonsertib의 ChEMBL ID는 **CHEMBL3916717**이고, 수집한 ASK1 활성 레�
 
 <figure style="margin:32px 0;"><img src="{{ '/assets/img/portfolio/ask1-evidence.svg' | relative_url }}" alt="SEL 약어 검토 기록: 공식 PDF 인용과 페이지, PENDING 및 최종 매핑 미반영" loading="lazy" style="width:100%;height:auto;border:1px solid #d7dfe6;border-radius:8px;"><figcaption>SEL 약어 검토 기록: 공식 PDF 인용과 페이지, PENDING 및 최종 매핑 미반영</figcaption></figure>
 
-## ‘0건’이라고 보여줘도 되는지 다시 생각했습니다
+## 수집 범위의 차이를 화면과 지표 설명에 반영했습니다
 
 처음 화면에는 모든 화합물 옆에 임상시험 수를 표시했습니다. 하지만 임상시험은 Selonsertib만 검색했기 때문에 다른 화합물의 0건은 ‘없음’이 아니라 ‘조사하지 않음’에 가까웠습니다.
 
@@ -100,8 +102,8 @@ Selonsertib의 ChEMBL ID는 **CHEMBL3916717**이고, 수집한 ASK1 활성 레�
 
 **2026년 9월 11일 기준 오프라인 테스트 43개가 통과했습니다.** 수집·정제·적재, PDF 근거 검증, 스냅샷 덮어쓰기 방지와 화면의 검색·필터·페이지 이동을 확인했습니다.
 
-## 마무리하며
+## 구현 결과와 판단 기준
 
-시작할 때는 여러 API를 연결하는 일이 중심이라고 생각했습니다. 진행하면서는 수집 범위가 다른 자료를 어떻게 보여줄지, 연결되지 않은 기록을 어디까지 해석할지가 더 까다로웠습니다.
+세 API의 수집 데이터를 원본·정제·조회 계층으로 연결하고, **4,465건의 RAW 데이터와 43개 오프라인 테스트 결과**를 확인했습니다. 반복 적재 결과와 품질 경고를 구분하고, Selonsertib 연결 사례는 확정 결과와 검토 중 후보를 나눠 보관했습니다.
 
-이번 프로젝트에서는 원본과 검토 상태를 남기고, 숫자가 무엇을 세는지 설명하는 데까지 마무리했습니다. 덕분에 결과가 이상할 때 원본으로 돌아가 확인할 수 있고, 아직 판단하지 못한 부분도 구분해서 볼 수 있게 됐습니다.
+화면에서도 수집 범위가 다른 자료를 분리하고 숫자의 의미를 설명했습니다. API 통합 과정에서 **데이터를 연결하는 규칙, 확정할 수 있는 범위, 사용자에게 표시할 정보**를 함께 정리한 경험입니다. 결과를 다시 확인할 수 있도록 원본과 검토 상태를 남겼으며, 아직 판단하지 못한 부분은 최종 매핑에 포함하지 않았습니다.

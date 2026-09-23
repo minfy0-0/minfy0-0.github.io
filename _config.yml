@@ -2,13 +2,9 @@ url: "https://minfy0-0.github.io"
 baseurl: ""
 
 title: "Minseo Kim | AI · Data · Cloud"
-email: "minseo03070294@gmail.com"
-description: "Portfolio covering AI web development, healthcare AI model evaluation, AWS deployment, and data analysis projects."
+description: "Portfolio covering AI service planning, public API integration, model evaluation, AWS deployment, and market data analysis."
 author: "Minseo Kim"
 locale: "ko_KR"
-
-analytics:
-  google: "G-NHHT43834D"
 
 markdown: kramdown
 permalink: pretty
@@ -18,6 +14,10 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - scripts
+  - dist
+  - requirements-submission.txt
+  - SUBMISSION.md
   - README.md
   - LICENSE.txt
   - screenshot.PNG

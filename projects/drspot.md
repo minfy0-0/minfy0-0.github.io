@@ -3,7 +3,7 @@ layout: case-study
 permalink: /projects/drspot/
 title: Dr. Spot · AI Skin Analysis
 eyebrow: HEALTHCARE AI · COMPUTER VISION · AWS · 2025
-description: 피부 병변 이미지를 YOLOv8로 탐지하고 EfficientNet-B4로 분류한 3인 팀 프로젝트입니다. YOLOv8 학습·검증, 하이퍼파라미터 튜닝, 성능 분석, 추론 파이프라인 통합과 AWS 배포 아키텍처를 맡았습니다.
+description: 피부 병변 탐지·분류를 사용자 화면과 연결한 3인 팀 프로젝트입니다. YOLOv8 학습·검증과 모델 오류 분석, 탐지 누락 시 대체 처리, 추론 파이프라인 통합과 AWS 배포 구조를 맡았습니다.
 cover: /assets/img/portfolio/drspot-architecture.png
 cover_alt: Dr. Spot AWS 기반 서비스 아키텍처
 tags:
@@ -24,7 +24,7 @@ facts:
 
 ## 피부 이미지에서 병변을 찾고, 결과를 보여주기까지
 
-AWS Bio Healthcare AI Academy에서 3인 팀으로 피부 병변 탐지·분류 서비스를 만들었습니다. 사용자가 이미지를 올리면 병변 위치를 찾고, 해당 영역을 분류해 화면에 보여주는 방식입니다. 모델을 학습하는 데서 시작해 두 모델을 연결하고 AWS에 배포하는 과정까지 진행했습니다.
+AWS Bio Healthcare AI Academy에서 3인 팀으로 피부 병변 탐지·분류 서비스를 만들었습니다. **이미지 업로드 → 병변 탐지 → 영역 분류 → 결과 표시**를 사용자 흐름으로 연결하고 AWS에 배포했습니다. 저는 모델 학습·검증과 오류 분석, 두 모델의 추론 연결, 배포 구조를 담당했습니다.
 
 분류 모델은 EfficientNet-B3/B4, DenseNet-121, ConvNeXt-Tiny, Vision Transformer를 비교했고, 병변 탐지에는 YOLOv8을 사용했습니다. 검증 결과가 가장 좋았던 EfficientNet-B4를 최종 분류 모델로 선택해 YOLOv8과 연결했습니다.
 
@@ -64,7 +64,7 @@ Dr. Spot은 탐지와 분류를 하나의 모델에 맡기지 않고 두 단계�
 
 저는 YOLOv8의 탐지 결과가 EfficientNet-B4 입력으로 넘어가도록 추론 흐름을 통합하고, 이미지 업로드부터 결과 화면까지 동작하는 경로를 구성했습니다.
 
-## 병변을 놓치는 경우도 살펴봤습니다
+## 탐지 누락을 대체 처리 경로로 연결했습니다
 
 YOLOv8 학습에서는 Box Loss, Classification Loss, DFL Loss와 함께 Precision, Recall, mAP@50, mAP@50–95를 확인했습니다.
 
@@ -72,7 +72,7 @@ YOLOv8 학습에서는 Box Loss, Classification Loss, DFL Loss와 함께 Precisi
 
 ![YOLOv8 training and validation results]({{ '/assets/img/portfolio/drspot-yolo-training.png' | relative_url }})
 
-## 분류 모델 5개를 비교했습니다
+## 동일한 검증 기준으로 분류 모델 5개를 비교했습니다
 
 팀은 다중 클래스 피부 병변 분류를 위해 5개 후보 모델을 동일한 검증 기준으로 비교했습니다.
 
@@ -96,7 +96,7 @@ EfficientNet-B4의 평균 점수가 가장 높았지만, 어떤 질환을 서로
 
 학습 정확도가 약 98%까지 올라간 반면 검증 정확도는 87% 내외에 머무르는 구간도 확인해 **잠재적 과적합 가능성**을 검토했습니다. 이를 바탕으로 추가 데이터 확보, 클래스별 증강, Early Stopping과 하이퍼파라미터 조정이 필요하다고 정리했습니다.
 
-최종 모델을 고르는 것만큼, 그 모델이 어떤 경우에 틀리는지 설명하는 일도 중요했습니다.
+검증 지표와 오류 사례를 함께 정리해 최종 모델의 선택 근거와 개선 과제를 구분했습니다. 위 수치는 프로젝트의 검증 데이터 기준이며, 실제 의료 현장의 진단 성능을 의미하지 않습니다.
 
 ## 학습한 모델을 웹에서 호출하도록 연결했습니다
 
@@ -117,7 +117,7 @@ Streamlit 앱은 Docker 이미지로 빌드해 ECR에 저장한 뒤 ECS Fargate�
 
 ## 모델 평가부터 배포까지 해보며
 
-모델별 성능표를 만들 때와 실제 업로드한 이미지를 처리할 때는 확인할 것이 달랐습니다. 탐지 결과의 형태, 병변을 놓쳤을 때의 처리, 웹에서 모델을 호출하는 경로까지 맞아야 결과를 보여줄 수 있었습니다.
+모델 성능을 비교한 뒤에는 입력·출력 형식, 탐지 실패 시 처리, 웹에서 모델을 호출하는 경로까지 맞춰야 사용자에게 결과를 제공할 수 있었습니다. 저는 성능과 오류 분석에서 확인한 제약을 추론 흐름과 배포 구조에 반영했습니다.
 
 - 탐지와 분류를 연결하면서 **모델 간 입력·출력 인터페이스**를 고려했습니다.
 - Accuracy뿐 아니라 F1-score, AUC, Confusion Matrix, ROC Curve를 함께 보며 **오류의 원인을 설명하는 평가 방식**을 익혔습니다.
