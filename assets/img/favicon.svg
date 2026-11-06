@@ -1,6 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#f5f3ed"/>
-  <rect x="10" y="17" width="44" height="40" rx="6" fill="#263faa"/>
-  <rect x="10" y="12" width="44" height="40" rx="6" fill="#3655d9"/>
-  <g fill="#6680f2" stroke="#92a5ff" stroke-width="1"><circle cx="23" cy="24" r="7"/><circle cx="41" cy="24" r="7"/><circle cx="23" cy="41" r="7"/><circle cx="41" cy="41" r="7"/></g>
+  <title>Minseo — studded M</title>
+  <path fill="#37538D" d="M4 18l4-4h11l14 14 14-14h12v37l-4 4H43V32L33 43h-6l-8-8v16l-4 4H4z"/>
+  <path fill="#91B4EE" d="M4 18l4-4h11l-4 4zm26 14 14-14 3-4h12l-4 4H44z"/>
+  <path fill="#4F70AC" d="M15 18l4-4 14 14-3 4z"/>
+  <path fill="#4A6EB5" d="M4 18h11l15 14 14-14h11v37H43V32L32 44h-5L15 32v23H4z"/>
+  <path fill="#7D9DD9" d="M15 18l15 14 14-14v14L32 44h-5L15 32z"/>
+  <path fill="#42649E" d="M4 39h11v1H4zm39 5h12v1H43z"/>
+  <g fill="#6B91D2">
+    <path d="M5.8 10.5h10.4v5c0 1.3-2.3 2.3-5.2 2.3s-5.2-1-5.2-2.3z"/>
+    <path d="M46 10.5h10.4v5c0 1.3-2.3 2.3-5.2 2.3s-5.2-1-5.2-2.3z"/>
+  </g>
+  <g fill="#AECBF4">
+    <ellipse cx="11" cy="10.5" rx="5.2" ry="2.3"/>
+    <ellipse cx="51.2" cy="10.5" rx="5.2" ry="2.3"/>
+  </g>
 </svg>
