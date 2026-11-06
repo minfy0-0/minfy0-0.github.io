@@ -11,7 +11,11 @@
         </div>
         <h3 id="skill-{{ block.id }}">{{ block.title }}</h3>
         <ul class="skill-list">{% for skill in block.skills %}<li>{{ skill }}</li>{% endfor %}</ul>
+        {% if block.projects %}
         <div class="skill-projects"><span>{{ ui.skill_projects }}</span><div>{% for project in block.projects %}{% assign project_path = home_url | append: 'projects/' | append: project.slug | append: '/' %}<a href="{{ project_path | relative_url }}">{{ project.name }}{% include arrow-up-right.html %}</a>{% endfor %}</div></div>
+        {% elsif block.experience %}
+        <div class="skill-projects"><a href="{{ block.experience.href }}">{{ block.experience.label }}{% include arrow-down-right.html %}</a></div>
+        {% endif %}
       </article>
       {% endfor %}
     </div>

@@ -50,7 +50,7 @@ config['data'] = {
 def page(title, description, body, is_home=False, lang='ko', url='/', translation_url=None):
     body += render(read('_includes/language-switcher.html'), page={'lang':lang, 'url':url, 'translation_url':translation_url, 'layout':'home' if is_home else 'case-study'}, site=config)
     if is_home:
-        styles = '<link rel="stylesheet" href="/assets/css/assembly-home.css?v=20261104-selected-v2"><link rel="stylesheet" href="/assets/css/assembly-layout.css?v=20261104-weighted-skills">'
+        styles = '<link rel="stylesheet" href="/assets/css/assembly-home.css?v=20261104-selected-v2"><link rel="stylesheet" href="/assets/css/assembly-layout.css?v=20261106-marketing">'
     else:
         styles = '<link rel="stylesheet" href="/assets/css/portfolio.css"><link rel="stylesheet" href="/assets/css/portfolio-overrides.css"><link rel="stylesheet" href="/assets/css/personal-theme.css"><link rel="stylesheet" href="/assets/css/design-polish.css?v=20261104-playback">'
     styles += '<link rel="stylesheet" href="/assets/css/sculptural-type.css?v=20261104-selected-v2">'

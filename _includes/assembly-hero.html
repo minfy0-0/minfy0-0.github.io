@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="assembly-art" aria-label="{{ ui.skill_title }}">
-    {% for block in site.data.skills[lang] %}
+    {% for block in site.data.skills[lang] limit: 4 %}
     <a class="meaning-module module-{{ block.id }}" href="#skill-block-{{ block.id }}">
       <svg class="module-symbol" viewBox="0 0 80 80" aria-hidden="true">{% include skill-symbol-paths.html %}</svg>
       <span class="module-label">{{ block.title }}{% include arrow-down-right.html %}</span>

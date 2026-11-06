@@ -35,6 +35,13 @@ ko:
       - Docker · ECS Fargate
     projects:
       - {slug: drspot, name: Dr. Spot}
+  - id: marketing
+    title: 콘텐츠 마케팅
+    skills:
+      - 콘텐츠 채널 운영
+      - 조회수·유입 경로 분석
+      - 제목·썸네일·구성 개선
+    experience: {href: '#content-marketing-experience', label: 채널 운영 경험 보기}
 en:
   - id: design
     title: Design
@@ -72,3 +79,10 @@ en:
       - Docker · ECS Fargate
     projects:
       - {slug: drspot, name: Dr. Spot}
+  - id: marketing
+    title: Content marketing
+    skills:
+      - Managing content channels
+      - Analyzing views and traffic sources
+      - Refining titles, thumbnails, and structure
+    experience: {href: '#content-marketing-experience', label: See channel experience}
