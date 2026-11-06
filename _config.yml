@@ -6,7 +6,7 @@ description: "생명공학·경영·컴퓨팅을 공부한 김민서의 포트�
 author: "Minseo Kim"
 portfolio_email: ""
 project_live_urls:
-  opic-coach: "https://opic-coach-nine.vercel.app"
+  opic-coach: ""
 locale: "ko_KR"
 
 markdown: kramdown

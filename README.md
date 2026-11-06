@@ -45,7 +45,7 @@ GitHub Pages는 Jekyll 원본과 미리 빌드한 자산을 사용하므로 Node
 비워두고, 확정 전까지 페이지에 자리표시자나 비활성 버튼을 표시하지 않습니다.
 현재 연락 경로는 GitHub이며, 이메일은 주소를 확정한 뒤 조건부로 표시합니다.
 
-OPIc 서비스 운영을 마치면 `_config.yml`의 `project_live_urls.opic-coach` 값을 `""`로 두고 배포합니다. 한·영 홈과 상세 기록에서 외부 서비스 링크가 함께 사라집니다.
+공개 포트폴리오에서는 OPIc 프로젝트를 작업 기록과 실제 화면으로 소개합니다. `_config.yml`의 `project_live_urls.opic-coach` 값은 비워 둡니다.
 
 ## 출처
 
