@@ -14,7 +14,11 @@
 <h2>OPIc speaking practice</h2>
 <div class="dossier-summary"><h3>The work</h3><p>A web app for listening to questions, recording answers, getting feedback, and practicing again. I brought question materials, personal scripts, and practice history into one place.</p></div>
 <div class="project-metrics"><div><strong>166</strong><span>active topics</span></div><div><strong>219</strong><span>active questions</span></div></div>
-<div class="dossier-links"><a href="https://opic-coach-nine.vercel.app" target="_blank" rel="noreferrer">Open the app</a><a class="project-detail" href="{{ '/en/projects/opic-coach/' | relative_url }}">Read the full project</a></div></div>
+<div class="dossier-links">
+  <a class="project-detail" href="{{ '/en/projects/opic-coach/' | relative_url }}"><strong>Read the full project</strong></a>
+  {% assign live_url = site.project_live_urls['opic-coach'] | default: '' | strip %}
+  {% if live_url != '' %}<a href="{{ live_url | escape }}" target="_blank" rel="noreferrer">{{ ui.live }}</a>{% endif %}
+</div></div>
 <figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>OPIc</span></div><img src="{{ '/assets/img/portfolio/opic-screen.png' | relative_url }}" alt="The OPIc speaking practice app, with its original Korean interface" width="2772" height="1444"></div></div><figcaption>OPIc AI Speaking Practice / Original app screenshot</figcaption></figure></div>
 <div class="dossier-notes"><div class="dossier-note"><h3>My role</h3><p>I defined the requirements, screen flow, and data structure, then implemented them with AI tools. I connected speech synthesis, transcription, and feedback APIs, and revised the app through my own practice sessions.</p></div><div class="dossier-note"><p><strong>I separated access to shared questions from access to personal records.</strong> Guests can start practicing immediately; signed-in users can save their own scripts and history.</p></div></div>
 <p class="dossier-stack">Next.js · React · TypeScript · Supabase<br>166 active topics, 219 active questions / 4 feedback criteria</p>

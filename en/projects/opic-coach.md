@@ -8,7 +8,6 @@ translation_url: /projects/opic-coach/
 title: OPIc Speaking Practice
 eyebrow: Personal project / 2026
 description: I brought the question materials, recordings, feedback, and personal notes I used for OPIc preparation into one place. I defined the practice flow, implemented it with AI tools, and revised the responses and interface by using it myself.
-live_url: https://opic-coach-nine.vercel.app
 tags: [Next.js 16, React 19, TypeScript, Supabase, Groq API, Vercel]
 facts:
   - {label: Project type, value: 'Personal web app'}

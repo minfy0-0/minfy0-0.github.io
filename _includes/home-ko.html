@@ -14,7 +14,11 @@
 <h2>OPIc 말하기 연습</h2>
 <div class="dossier-summary"><h3>만든 것</h3><p>질문을 듣고, 답변을 녹음하고, 피드백을 받아 다시 연습하는 웹서비스. 따로 쓰던 질문 자료와 개인 스크립트, 연습 기록을 한곳에 모았습니다.</p></div>
 <div class="project-metrics"><div><strong>166</strong><span>활성 주제</span></div><div><strong>219</strong><span>활성 질문</span></div></div>
-<div class="dossier-links"><a href="https://opic-coach-nine.vercel.app" target="_blank" rel="noreferrer">서비스 열기</a><a class="project-detail" href="{{ '/projects/opic-coach/' | relative_url }}">작업 기록 전체 보기</a></div></div>
+<div class="dossier-links">
+  <a class="project-detail" href="{{ '/projects/opic-coach/' | relative_url }}"><strong>작업 기록 전체 보기</strong></a>
+  {% assign live_url = site.project_live_urls['opic-coach'] | default: '' | strip %}
+  {% if live_url != '' %}<a href="{{ live_url | escape }}" target="_blank" rel="noreferrer">{{ ui.live }}</a>{% endif %}
+</div></div>
 <figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>OPIc</span></div><img src="{{ '/assets/img/portfolio/opic-screen.png' | relative_url }}" alt="OPIc AI Speaking Practice 실제 서비스 화면" width="2772" height="1444"></div></div><figcaption>OPIc AI Speaking Practice / 실제 서비스 화면</figcaption></figure></div>
 <div class="dossier-notes"><div class="dossier-note"><h3>맡은 일</h3><p>요구사항과 화면 흐름, 데이터 구조를 정하고 AI 도구를 활용해 구현했습니다. 음성 합성·전사·피드백 API를 연결하고 직접 사용하며 수정했습니다.</p></div><div class="dossier-note"><p><strong>공용 질문과 개인 기록의 접근 기준을 나눴습니다.</strong> 게스트는 바로 연습하고, 로그인한 사용자는 자신의 스크립트와 기록을 저장하도록 구성했습니다.</p></div></div>
 <p class="dossier-stack">Next.js · React · TypeScript · Supabase<br>활성 주제 166개, 활성 질문 219개 / 피드백 기준 4개</p>

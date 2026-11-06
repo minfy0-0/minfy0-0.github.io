@@ -6,7 +6,6 @@ translation_url: /en/projects/opic-coach/
 title: OPIc 말하기 연습 서비스
 eyebrow: 개인 프로젝트 / 2026
 description: OPIc를 준비하며 따로 쓰던 질문 자료, 녹음, 피드백과 개인 기록을 한곳에 모았습니다. 필요한 연습 흐름을 정하고 AI 도구를 활용해 구현한 뒤, 직접 사용하며 응답과 화면을 고쳤습니다.
-live_url: https://opic-coach-nine.vercel.app
 tags:
   - Next.js 16
   - React 19

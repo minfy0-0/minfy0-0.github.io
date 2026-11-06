@@ -39,11 +39,6 @@ layout: default
             {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
           </div>
           {% endif %}
-          {% if page.live_url %}
-          <div class="hero-actions" style="margin-top: 20px;">
-            <a class="btn btn-primary" href="{{ page.live_url }}" target="_blank" rel="noreferrer">{{ ui.live }}</a>
-          </div>
-          {% endif %}
         </div>
         <div class="case-facts">
           {% for fact in page.facts %}
@@ -61,6 +56,10 @@ layout: default
 
   <article class="case-content" id="case-article" tabindex="-1">
     {{ content }}
+    {% assign live_url = site.project_live_urls[page.project_slug] | default: page.live_url | default: '' | strip %}
+    {% if live_url != '' %}
+    <p><a href="{{ live_url | escape }}" target="_blank" rel="noreferrer">{{ ui.live }}</a></p>
+    {% endif %}
   </article>
 </main>
 
