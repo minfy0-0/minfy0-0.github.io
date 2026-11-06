@@ -3,7 +3,7 @@
 {% assign home_url = '/' %}{% if lang == 'en' %}{% assign home_url = '/en/' %}{% endif %}
 <header class="site-header" data-header>
   <div class="shell nav-wrap">
-    <a class="brand" href="{{ home_url | relative_url }}" aria-label="{{ ui.home_label }}">{% include identity-mark.html %}{{ ui.name }}</a>
+    <a class="brand" href="{{ home_url | relative_url }}" aria-label="{{ ui.home_label }}">{{ ui.name }}</a>
     <button class="nav-toggle" type="button" aria-label="{{ ui.menu }}" aria-controls="site-navigation" aria-expanded="false" data-nav-toggle><span></span><span></span></button>
     <nav class="site-nav" id="site-navigation" data-nav aria-label="{{ ui.navigation }}">
       {% include primary-navigation-links.html %}
