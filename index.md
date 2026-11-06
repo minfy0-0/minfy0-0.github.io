@@ -1,4 +1,8 @@
 ---
 layout: home
-description: "김민서의 AI · Data · Cloud 포트폴리오. AI 웹서비스 개발, 의료 AI 모델 평가, AWS 배포와 데이터 분석 경험을 정리했습니다."
+lang: ko
+locale: ko_KR
+permalink: /
+translation_url: /en/
+description: "생명공학·경영·컴퓨팅을 공부한 김민서의 포트폴리오. 직접 만든 영어 말하기 서비스, 팀으로 만든 피부 분석 AI, 연구 데이터 통합과 카페 시장 분석을 담았습니다."
 ---

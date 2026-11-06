@@ -1,0 +1,12 @@
+{% assign current_lang = page.lang | default: 'ko' %}
+{% if current_lang == 'en' %}
+  {% assign ko_url = page.translation_url | default: '/' %}
+  {% assign en_url = page.url | default: '/en/' %}
+{% else %}
+  {% assign ko_url = page.url | default: '/' %}
+  {% assign en_url = page.translation_url | default: '/en/' %}
+{% endif %}
+<div class="language-switch" role="group" aria-label="Language / 언어">
+  <a href="{{ ko_url | relative_url }}" lang="ko" hreflang="ko" aria-label="KR 한국어"{% if current_lang == 'ko' %} aria-current="page"{% endif %}{% if page.layout == 'home' %} data-preserve-hash{% endif %}>KR</a>
+  <a href="{{ en_url | relative_url }}" lang="en" hreflang="en" aria-label="EN English"{% if current_lang == 'en' %} aria-current="page"{% endif %}{% if page.layout == 'home' %} data-preserve-hash{% endif %}>EN</a>
+</div>

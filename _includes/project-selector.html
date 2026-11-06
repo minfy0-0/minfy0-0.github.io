@@ -1,0 +1,18 @@
+<div class="project-toolbar" data-project-toolbar>
+  <div class="work-heading">
+    <div class="project-heading"><h2 id="work-title">{{ ui.title }}</h2><span class="project-count" data-project-count aria-hidden="true">01 / {{ ui.projects.size | prepend: '0' | slice: -2, 2 }}</span></div>
+    <div class="project-controls" data-project-controls hidden>
+      <button class="project-arrow" type="button" data-project-prev aria-label="{{ ui.previous_project }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7"/></svg></button>
+      <button class="project-arrow" type="button" data-project-next aria-label="{{ ui.next_project }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></button>
+    </div>
+  </div>
+  <div class="project-tabs" data-project-tabs aria-label="{{ ui.picker }}" hidden>
+    {% for project in ui.projects %}<button class="project-tab" type="button" id="tab-{{ project.slug }}" data-project-target="{{ project.slug }}"><span class="project-tab-index" aria-hidden="true">0{{ forloop.index }}</span><span>{{ project.short }}</span><span class="project-tab-line" aria-hidden="true"><i></i></span></button>{% endfor %}
+  </div>
+  <div class="project-play-row">
+    <button class="project-play" type="button" data-project-play data-start="{{ ui.autoplay }}" data-stop="{{ ui.pause }}" data-start-label="{{ ui.autoplay_label }}" aria-pressed="false" aria-label="{{ ui.autoplay_label }}">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path class="play-symbol" d="m7 4 9 6-9 6Z" fill="currentColor"/><path class="pause-symbol" d="M6 4v12M13 4v12" stroke="currentColor" stroke-width="3"/></svg><span>{{ ui.autoplay }}</span>
+    </button>
+  </div>
+</div>
+<p class="project-announcement" data-project-announcement aria-live="polite" aria-atomic="true"></p>

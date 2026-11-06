@@ -1,0 +1,19 @@
+<section class="skill-section" id="skills" aria-labelledby="skills-title">
+  <div class="skills-inner">
+    <div class="skills-heading"><h2 id="skills-title">{{ ui.skill_title }}</h2><span class="skills-key" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+    <div class="skill-grid">
+      {% for block in site.data.skills[lang] %}
+      <article class="skill-block skill-block-{{ block.id }}" id="skill-block-{{ block.id }}" tabindex="-1" aria-labelledby="skill-{{ block.id }}">
+        <div class="skill-block-top"><span class="skill-number" aria-hidden="true">0{{ forloop.index }}</span>
+          <svg class="skill-symbol" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+          {% include skill-symbol-paths.html %}
+          </svg>
+        </div>
+        <h3 id="skill-{{ block.id }}">{{ block.title }}</h3>
+        <ul class="skill-list">{% for skill in block.skills %}<li>{{ skill }}</li>{% endfor %}</ul>
+        <div class="skill-projects"><span>{{ ui.skill_projects }}</span><div>{% for project in block.projects %}{% assign project_path = home_url | append: 'projects/' | append: project.slug | append: '/' %}<a href="{{ project_path | relative_url }}">{{ project.name }}{% include arrow-up-right.html %}</a>{% endfor %}</div></div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

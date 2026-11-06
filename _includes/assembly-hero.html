@@ -1,0 +1,29 @@
+{% assign lang = page.lang | default: 'ko' %}
+{% assign ui = site.data.interface[lang] %}
+{% assign home_url = '/' %}{% if lang == 'en' %}{% assign home_url = '/en/' %}{% endif %}
+<a class="skip-link" href="#work">{{ ui.view_projects }}</a>
+<header class="bench-header study-header">
+  <a class="bench-name" href="{{ home_url | relative_url }}" aria-label="{{ ui.home_label }}">{% include identity-mark.html %}{{ ui.name }}</a>
+  <nav aria-label="{{ ui.navigation }}">{% include primary-navigation-links.html %}</nav>
+</header>
+<section class="study-hero assembly-hero" data-workbench aria-labelledby="hero-title">
+  <div class="hero-text">
+    <h1 id="hero-title">MINSEO<br>KIM</h1>
+    <p class="hero-intro">{{ hero_intro }}</p>
+    {% if ui.direction != '' %}<p class="hero-direction">{{ ui.direction }}</p>{% endif %}
+    <div class="hero-actions">
+      <a href="#work">{{ ui.view_projects }}{% include arrow-down-right.html %}</a>
+      <a href="https://github.com/minfy0-0" aria-label="{{ ui.github_label }}" target="_blank" rel="noreferrer">GitHub{% include arrow-up-right.html %}</a>
+      {% if site.portfolio_email != '' %}<a href="mailto:{{ site.portfolio_email }}">{{ ui.email }}{% include arrow-up-right.html %}</a>{% endif %}
+    </div>
+  </div>
+  <div class="assembly-art" aria-label="{{ ui.skill_title }}">
+    {% for block in site.data.skills[lang] %}
+    <a class="meaning-module module-{{ block.id }}" href="#skill-block-{{ block.id }}">
+      <svg class="module-symbol" viewBox="0 0 80 80" aria-hidden="true">{% include skill-symbol-paths.html %}</svg>
+      <span class="module-label">{{ block.title }}{% include arrow-down-right.html %}</span>
+    </a>
+    {% endfor %}
+    <span class="assembly-edition" aria-hidden="true">Portfolio / 2026</span>
+  </div>
+</section>

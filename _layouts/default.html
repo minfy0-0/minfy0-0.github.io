@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="{{ page.lang | default: 'ko' }}">
   {% include head.html %}
-  <body>
+  <body{% if page.layout == 'home' %} class="selected-home"{% endif %}>
     {{ content }}
+    {% include language-switcher.html %}
     <script src="{{ '/assets/js/portfolio.js' | relative_url }}" defer></script>
   </body>
 </html>

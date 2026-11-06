@@ -1,0 +1,86 @@
+ko:
+  read_content: 본문 바로 읽기
+  skill_title: 스킬
+  skill_projects: 적용 프로젝트
+  previous_project: 이전 프로젝트
+  next_project: 다음 프로젝트
+  autoplay: 자동 넘김
+  pause: 일시 정지
+  autoplay_label: 자동 넘김 (8초 간격)
+  github_label: GitHub (새 탭에서 열림)
+  direction: ''
+  view_projects: 프로젝트 보기
+  email: 이메일
+  contact: 연락
+  process: 일하는 방식
+  process_discover: 불편 발견
+  process_plan: 기획
+  process_build: 구현
+  process_verify: 검증
+  name: MINSEO KIM
+  home_label: MINSEO KIM 홈
+  background: 생명공학 주전공 / 경영학 복수전공 / 컴퓨팅 부전공
+  navigation: 주요 메뉴
+  work: 프로젝트
+  about: 소개
+  experience: 경험
+  skills: 배경
+  menu: 메뉴 열기
+  title: 프로젝트
+  sculpture: 프로젝트에 따라 다시 조립되는 블록
+  fallback: 서로 다른 색과 크기의 블록을 연결한 조형물
+  click_before: 블록 클릭으로
+  click_after: 기록 보기
+  motion: 드래그로 회전 · 프로젝트 선택으로 재조립
+  pieces: 같은 20개의 블록
+  picker: 프로젝트 선택
+  back: 프로젝트로 돌아가기
+  live: 서비스 열기
+  projects:
+    - {slug: opic-coach, short: OPIc, subtitle: 말하기 연습 서비스, name: OPIc 말하기 연습 도구, caption: '직접 쓰는<br>말하기 연습 도구', shape: 마이크}
+    - {slug: drspot, short: Dr. Spot, subtitle: 피부 이미지 분석, name: Dr. Spot 피부 이미지 분석, caption: '이미지에서<br>사용자 화면까지', shape: 이미지 스캐너}
+    - {slug: ask1-pipeline, short: ASK1, subtitle: 연구 데이터 통합, name: ASK1 연구 데이터 통합, caption: '연구 자료를<br>연결하는 구조', shape: 연결된 데이터}
+    - {slug: seoul-cafe, short: 서울의 카페, subtitle: 시장과 입지 분석, name: 서울 카페 시장 분석, caption: '서울의 카페를<br>들여다본 기록', shape: 작은 거리}
+en:
+  read_content: Skip to article
+  skill_title: Skills
+  skill_projects: Used in
+  previous_project: Previous project
+  next_project: Next project
+  autoplay: Auto-play
+  pause: Pause
+  autoplay_label: Auto-play (every 8 seconds)
+  github_label: GitHub (opens in new tab)
+  direction: ''
+  view_projects: View projects
+  email: Email
+  contact: Contact
+  process: How I work
+  process_discover: Find the friction
+  process_plan: Plan
+  process_build: Build
+  process_verify: Verify
+  name: MINSEO KIM
+  home_label: MINSEO KIM home
+  background: Biotechnology / Business / Computing
+  navigation: Main navigation
+  work: Projects
+  about: About
+  experience: Experience
+  skills: Background
+  menu: Open menu
+  title: Projects
+  sculpture: Blocks that reassemble for each project
+  fallback: A structure assembled from blocks of different colors and sizes
+  click_before: Click the blocks for
+  click_after: project notes
+  motion: Drag to rotate · Pick a project to reassemble
+  pieces: The same 20 blocks
+  picker: Choose a project
+  back: Back to projects
+  live: Open the app
+  projects:
+    - {slug: opic-coach, short: OPIc, subtitle: Speaking practice, name: OPIc speaking practice, caption: 'A speaking tool<br>I use myself', shape: Microphone}
+    - {slug: drspot, short: Dr. Spot, subtitle: Skin image analysis, name: Dr. Spot skin image analysis, caption: 'From an image<br>to a usable result', shape: Image scanner}
+    - {slug: ask1-pipeline, short: ASK1, subtitle: Research data integration, name: ASK1 research data integration, caption: 'Connecting<br>research data', shape: Connected data}
+    - {slug: seoul-cafe, short: Seoul cafés, subtitle: Market and location analysis, name: Seoul café market analysis, caption: 'A closer look<br>at cafés in Seoul', shape: A small street}

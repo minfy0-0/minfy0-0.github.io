@@ -1,0 +1,24 @@
+{% case block.id %}
+{% when 'design' %}
+<g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="miter">
+  <path d="M36 65H9V13h49v17M9 25h49"/>
+  <path d="m44 54 18-18 10 10-18 18-14 4 4-14ZM57 41l10 10"/>
+</g>
+<path d="M16 33h11v22H16zM33 33h16v6H33zM33 45h8v10h-8z" fill="currentColor"/>
+{% when 'development' %}
+<g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter">
+  <path d="M24 22 6 40l18 18M56 22l18 18-18 18M47 13 33 67"/>
+</g>
+{% when 'data' %}
+<g stroke="currentColor" stroke-width="5" fill="none">
+  <path d="M14 18v44c0 6 12 11 26 11s26-5 26-11V18"/>
+  <path d="M14 34c0 6 12 11 26 11s26-5 26-11M14 49c0 6 12 11 26 11s26-5 26-11"/>
+  <ellipse cx="40" cy="18" rx="26" ry="11" fill="currentColor"/>
+</g>
+{% when 'ai-cloud' %}
+<g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="miter">
+  <path d="M20 35h-3C11 35 7 31 7 25s4-10 10-10h3C22 8 28 5 35 5s13 4 15 11c2-2 5-3 8-3 8 0 14 6 14 13 0 5-4 9-10 9H20ZM40 35v9"/>
+  <path d="M25 44h30v25H25zM17 50h8m-8 13h8m30-13h8m-8 13h8M32 69v7m16-7v7"/>
+</g>
+<path d="M31 62V51h7v11m-7-6h7m6-5h6m-3 0v11m-3 0h6" fill="none" stroke="currentColor" stroke-width="2.5"/>
+{% endcase %}

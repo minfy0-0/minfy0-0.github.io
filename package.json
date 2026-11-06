@@ -1,0 +1,13 @@
+{
+  "name": "minseo-portfolio-block-hero",
+  "private": true,
+  "scripts": {
+    "build:home": "esbuild src/assembly-home.js --bundle --minify --legal-comments=none --target=es2020 --outfile=assets/js/assembly-home.js",
+    "build:workbench": "esbuild src/workbench.js --bundle --minify --legal-comments=none --target=es2020 --outfile=assets/js/workbench.js",
+    "build:hero": "esbuild src/block-scene.js --bundle --minify --legal-comments=none --target=es2020 --outfile=assets/js/block-scene.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.180.0"
+  }
+}

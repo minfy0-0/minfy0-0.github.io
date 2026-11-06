@@ -8,15 +8,27 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 
-  {% seo %}
+  {% seo title=false %}
+  <title>{% if page.layout == 'home' %}{% if page.lang == 'en' %}Minseo Kim | Portfolio{% else %}{{ site.title }}{% endif %}{% else %}{{ page.title }} | Minseo Kim{% endif %}</title>
+  {% if page.translation_url %}
+  <link rel="alternate" hreflang="{{ page.lang | default: 'ko' }}" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" hreflang="{% if page.lang == 'en' %}ko{% else %}en{% endif %}" href="{{ page.translation_url | prepend: site.baseurl | prepend: site.url }}">
+  {% endif %}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="{{ '/assets/fonts/SUIT-Variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/BricolageGrotesque.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/SUITE-Variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  {% if page.layout == 'home' %}
+  <link rel="stylesheet" href="{{ '/assets/css/assembly-home.css' | relative_url }}?v=20261104-selected-v2">
+  <link rel="stylesheet" href="{{ '/assets/css/assembly-layout.css' | relative_url }}?v=20261104-weighted-skills">
+  {% else %}
   <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/portfolio-overrides.css' | relative_url }}">
 
-  <link rel="stylesheet" href="{{ '/assets/css/naver-theme.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/personal-theme.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/design-polish.css' | relative_url }}?v=20261104-playback">
+  {% endif %}
+  <link rel="stylesheet" href="{{ '/assets/css/sculptural-type.css' | relative_url }}?v=20261104-selected-v2">
   {% if site.analytics.google %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google }}"></script>
   <script>

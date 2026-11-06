@@ -1,0 +1,10 @@
+@font-face{font-family:"Bricolage Grotesque";src:url('/assets/fonts/BricolageGrotesque.ttf') format('truetype');font-weight:200 800;font-display:swap}
+@font-face{font-family:SUITE;src:url('/assets/fonts/SUITE-Variable.woff2') format('woff2');font-weight:300 900;font-display:swap}
+:root{--display:"Bricolage Grotesque",SUITE,sans-serif;--headline:SUITE,sans-serif}
+body{font-synthesis:none}
+h1,h2,h3{font-family:var(--display);font-optical-sizing:auto}
+.bench-name,.brand-name,.study-footer>span:first-child{font-family:var(--display);font-weight:650;letter-spacing:-.04em}
+.study-hero h1{font-family:var(--display);font-weight:650;font-variation-settings:"wdth" 100,"opsz" 96;letter-spacing:-.055em}
+.hero-intro{font-family:var(--headline);font-weight:450}
+html[lang=en] .hero-intro{font-family:var(--display);font-weight:400;letter-spacing:-.025em}
+.project-metrics strong{font-family:var(--display);font-weight:600}

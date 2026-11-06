@@ -1,0 +1,70 @@
+<main id="main">
+{% assign hero_intro = '생명공학에서 시작해,<br>경영학과 컴퓨팅까지.' %}
+  {% include assembly-hero.html %}
+  <section class="intro-band" id="about" aria-label="{{ ui.about }}"><div class="intro-inner">
+<p>생명공학을 주전공으로, 경영학을 복수전공으로, 컴퓨팅을 부전공으로 공부했습니다. 전체 흐름을 먼저 이해하고, 기술이 비즈니스에서 어떤 역할을 할 수 있을지 생각합니다. 전공자와 비전공자가 서로 이해할 수 있도록 돕고, 함께 서비스의 방향을 구체화하는 일을 하고 싶습니다.</p>
+<p>이곳에는 완성한 결과와 함께, 프로젝트마다 맡았던 일과 그때의 판단을 남겼습니다.</p>
+  </div></section>
+  <section class="project-records" id="work" aria-labelledby="work-title" data-project-carousel>
+    {% include project-selector.html %}
+    <div class="project-viewport" data-project-viewport><div class="project-autoplay-sentinel" data-autoplay-sentinel aria-hidden="true"></div><div class="project-track" data-project-track>
+    <article class="project-dossier project-1" id="opic-coach" tabindex="-1"><div class="dossier-inner">
+      <div class="project-feature"><div class="dossier-copy">
+<p class="dossier-meta">OPIc 말하기 연습 서비스 / 2026 / 개인 프로젝트</p>
+<h2>공용 질문은 바로, 개인 기록은 사용자별로.</h2>
+<div class="dossier-summary"><h3>만든 것</h3><p>질문을 듣고, 답변을 녹음하고, 피드백을 받아 다시 연습하는 웹서비스. 따로 쓰던 질문 자료와 개인 스크립트, 연습 기록을 한곳에 모았습니다.</p></div>
+<div class="project-metrics"><div><strong>166</strong><span>활성 주제</span></div><div><strong>219</strong><span>활성 질문</span></div></div>
+<div class="dossier-links"><a href="https://opic-coach-nine.vercel.app" target="_blank" rel="noreferrer">서비스 열기</a><a class="project-detail" href="{{ '/projects/opic-coach/' | relative_url }}">작업 기록 전체 보기</a></div></div>
+<figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>OPIc</span></div><img src="{{ '/assets/img/portfolio/opic-screen.png' | relative_url }}" alt="OPIc AI Speaking Practice 실제 서비스 화면" width="2772" height="1444"></div></div><figcaption>OPIc AI Speaking Practice / 실제 서비스 화면</figcaption></figure></div>
+<div class="dossier-notes"><div class="dossier-note"><h3>맡은 일</h3><p>요구사항과 화면 흐름, 데이터 구조를 정하고 AI 도구를 활용해 구현했습니다. 음성 합성·전사·피드백 API를 연결하고 직접 사용하며 수정했습니다.</p></div><div class="dossier-note"><p><strong>공용 질문과 개인 기록의 접근 기준을 나눴습니다.</strong> 게스트는 바로 연습하고, 로그인한 사용자는 자신의 스크립트와 기록을 저장하도록 구성했습니다.</p></div></div>
+<p class="dossier-stack">Next.js · React · TypeScript · Supabase<br>활성 주제 166개, 활성 질문 219개 / 피드백 기준 4개</p>
+    </div></article>
+    <article class="project-dossier project-2" id="drspot" tabindex="-1"><div class="dossier-inner">
+      <div class="project-feature"><div class="dossier-copy">
+<p class="dossier-meta">Dr. Spot 피부 이미지 분석 / 2025 / 3인 팀 프로젝트</p>
+<h2>탐지되지 않는 입력도 처리하도록.</h2>
+<div class="dossier-summary"><h3>만든 것</h3><p>피부 이미지를 분석하는 AI 서비스 Dr. Spot. 3인 팀으로 이미지 입력부터 분석 결과를 보여주는 흐름을 만들었습니다.</p></div>
+<div class="project-metrics"><div><strong>86.6%</strong><span>EfficientNet-B4 검증 정확도</span></div><div><strong>0.974</strong><span>검증 AUC</span></div></div>
+<div class="dossier-links"><a class="project-detail" href="{{ '/projects/drspot/' | relative_url }}">작업 기록 전체 보기</a><a href="https://github.com/minfy0-0/say_capybara" target="_blank" rel="noreferrer">GitHub</a></div></div>
+<figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Dr. Spot</span></div><img src="{{ '/assets/img/portfolio/drspot-screen.png' | relative_url }}" alt="Dr. Spot AI 피부 분석 실제 결과 화면" loading="lazy" width="1476" height="1128"></div></div><figcaption>Dr. Spot / 피부 이미지 분석 결과 화면</figcaption></figure></div>
+<div class="dossier-notes"><div class="dossier-note"><h3>맡은 일</h3><p>YOLOv8 학습·검증, 모델별 성능과 오류 분석, 추론 통합과 AWS 배포 구조를 맡았습니다.</p></div><div class="dossier-note"><p><strong>탐지되지 않는 입력도 처리할 수 있어야 했습니다.</strong> 탐지 누락에 대비한 대체 처리 경로를 구성하고, 결과가 사용자 화면까지 이어지는지 확인했습니다.</p></div></div>
+<p class="dossier-stack">Python · PyTorch · SageMaker · ECS Fargate<br>EfficientNet-B4 검증 정확도 86.6% / 검증 AUC 0.974</p>
+    </div></article>
+    <article class="project-dossier project-3" id="ask1-pipeline" tabindex="-1"><div class="dossier-inner">
+      <div class="project-feature"><div class="dossier-copy">
+<p class="dossier-meta">ASK1 연구 데이터 통합 / 2026</p>
+<h2>‘찾아보지 않음’을 ‘0건’으로 보여주지 않기.</h2>
+<div class="dossier-summary"><h3>만든 것</h3><p>세 공개 API의 ASK1 연구 자료를 Python과 Snowflake로 통합했습니다. 원본을 보존하고, 정제와 조회에 쓰는 기준을 나눴습니다.</p></div>
+<div class="project-metrics"><div><strong>4,465</strong><span>RAW</span></div><div><strong>43</strong><span>오프라인 테스트</span></div></div>
+<div class="dossier-links"><a class="project-detail" href="{{ '/projects/ask1-pipeline/' | relative_url }}">작업 기록 전체 보기</a></div></div>
+<figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>ASK1</span></div><img src="{{ '/assets/img/portfolio/ask1-screen.jpg' | relative_url }}" alt="ASK1 데이터 조회 화면: 수집 범위와 화합물별 연결 상태" width="871" height="1145" loading="lazy"></div></div><figcaption>ASK1 / 데이터 수집, 정제, 검증, 조회 구조</figcaption></figure></div>
+<div class="dossier-notes"><div class="dossier-note"><h3>맡은 일</h3><p>수집·적재·연결 기준을 정리하고 누락과 중복을 검증했습니다. 수집 범위를 오해하지 않도록 조회 화면과 지표 설명도 수정했습니다.</p></div><div class="dossier-note"><p><strong>‘찾아보지 않음’과 ‘0건’을 다르게 보여줬습니다.</strong> 임상시험 연결은 Selonsertib을 사례로 확인했고, 조사하지 않은 화합물에는 같은 결과를 적용하지 않았습니다.</p></div></div>
+<p class="dossier-stack">Python · Snowflake · SQL · Streamlit<br>RAW 4,465건 / 오프라인 테스트 43개 / Selonsertib 수집 시험 11건 중 9건 매칭 </p>
+    </div></article>
+    <article class="project-dossier project-4" id="seoul-cafe" tabindex="-1"><div class="dossier-inner">
+      <div class="project-feature"><div class="dossier-copy">
+<p class="dossier-meta">서울 카페 분석 / 2024</p>
+<h2>차트를 그리기 전에 지역 코드부터.</h2>
+<div class="dossier-summary"><h3>분석한 것</h3><p>카페가 많은 곳은 수요가 큰 곳일까, 경쟁이 치열한 곳일까. 카페 등록 기록과 유동인구, 폐업 흐름을 같은 지역 기준으로 비교했습니다.</p></div>
+<div class="project-metrics"><div><strong>45,035</strong><span>카페 등록 기록</span></div><div><strong>424</strong><span>행정동</span></div></div>
+<div class="dossier-links"><a class="project-detail" href="{{ '/projects/seoul-cafe/' | relative_url }}">작업 기록 전체 보기</a></div></div>
+<figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Power BI</span></div><img src="{{ '/assets/img/portfolio/cafe-screen.png' | relative_url }}" alt="서울 카페 시장과 지역별 수요·공급을 비교한 Power BI 대시보드" loading="lazy" width="832" height="948"></div></div><figcaption>서울 카페 시장·입지 분석 / Power BI 대시보드</figcaption></figure></div>
+<div class="dossier-notes"><div class="dossier-note"><h3>맡은 일</h3><p>행정동 코드 매핑과 데이터 정제, DAX 지표 설계, Power BI 대시보드 구성을 진행했습니다.</p></div><div class="dossier-note"><p><strong>차트를 만들기 전에 지역 기준부터 맞췄습니다.</strong> 데이터마다 다른 지역 코드를 매핑하고, 누적 등록 기록과 현재 영업 점포 수를 구분해 비교했습니다.</p></div></div>
+<p class="dossier-stack">Power BI · Power Query · DAX<br>카페 등록 기록 45,035건 / 유동인구 약 184K / 행정동 424개</p>
+    </div></article>
+    </div></div>
+  </section>
+  {% include skill-blocks.html %}
+  <section class="bench-about" id="experience" aria-labelledby="experience-title"><div class="bench-about-inner">
+    <div class="about-background"><span class="section-index">{{ ui.skills }}</span><h2 id="experience-title">{{ ui.experience }}</h2>
+<p class="about-education">상명대학교 / 2027년 2월 졸업 예정<br>생명공학 주전공 / 경영학 복수전공 / 컴퓨팅 부전공</p>
+<p class="about-certs"><span>SQLD</span><span>ADsP</span><span>AWS Cloud Practitioner</span></p>
+    </div>
+    <div class="about-experience">
+<dl class="bench-history"><div><dt>2026</dt><dd>OPIc와 ASK1<span>개인 웹서비스 제작, 공개 연구 데이터 통합</span></dd></div><div><dt>2025</dt><dd>AWS Bio Healthcare AI Academy<span>AWS × 성균관대학교, 865시간 / 3인 팀 Dr. Spot</span></dd></div><div><dt>2024</dt><dd>시장 분석과 마케팅 전략<span>서울 카페 시장·입지 분석 / 공공데이터 활용 마케팅 전략, 글로벌경영학회 장려상</span></dd></div></dl>
+<section class="about-content" aria-labelledby="content-title"><h3 id="content-title">글과 영상도 만들었습니다</h3><p>Naver Blog, Tistory, Instagram, YouTube 운영. 조회·유입을 참고해 제목과 썸네일, 구성을 바꿔봤습니다. 영상 한 편 6,000+ 조회, 블로그 일 방문 100+ 기록.</p></section>
+    </div></div></section>
+  {% include portfolio-contact.html %}
+</main>
+<footer class="study-footer"><span>{{ ui.name }}</span><span>Portfolio / 2026</span></footer>
+<script src="{{ '/assets/js/assembly-home.js' | relative_url }}" defer></script>

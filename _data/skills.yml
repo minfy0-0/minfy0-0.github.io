@@ -1,0 +1,74 @@
+ko:
+  - id: design
+    title: 디자인
+    skills:
+      - 화면 흐름 설계
+      - 정보 구조
+      - 대시보드 시각화
+    projects:
+      - {slug: opic-coach, name: OPIc}
+      - {slug: seoul-cafe, name: 서울의 카페}
+  - id: development
+    title: 개발
+    skills:
+      - Next.js · React
+      - TypeScript
+      - Supabase
+      - API 연결
+    projects:
+      - {slug: opic-coach, name: OPIc}
+  - id: data
+    title: 데이터
+    skills:
+      - Python · SQL
+      - Snowflake
+      - Power BI · DAX
+      - Power Query
+    projects:
+      - {slug: ask1-pipeline, name: ASK1}
+      - {slug: seoul-cafe, name: 서울의 카페}
+  - id: ai-cloud
+    title: AI · 클라우드
+    skills:
+      - PyTorch · YOLOv8
+      - AWS SageMaker
+      - Docker · ECS Fargate
+    projects:
+      - {slug: drspot, name: Dr. Spot}
+en:
+  - id: design
+    title: Design
+    skills:
+      - Screen flows
+      - Information structure
+      - Dashboard visualization
+    projects:
+      - {slug: opic-coach, name: OPIc}
+      - {slug: seoul-cafe, name: Seoul cafés}
+  - id: development
+    title: Development
+    skills:
+      - Next.js · React
+      - TypeScript
+      - Supabase
+      - API integration
+    projects:
+      - {slug: opic-coach, name: OPIc}
+  - id: data
+    title: Data
+    skills:
+      - Python · SQL
+      - Snowflake
+      - Power BI · DAX
+      - Power Query
+    projects:
+      - {slug: ask1-pipeline, name: ASK1}
+      - {slug: seoul-cafe, name: Seoul cafés}
+  - id: ai-cloud
+    title: AI & Cloud
+    skills:
+      - PyTorch · YOLOv8
+      - AWS SageMaker
+      - Docker · ECS Fargate
+    projects:
+      - {slug: drspot, name: Dr. Spot}

@@ -8,3 +8,6 @@ unused
 bootstrap-reference.html
 dist/
 __pycache__/
+.venv/
+node_modules/
+preview-evidence/

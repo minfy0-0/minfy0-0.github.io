@@ -1,0 +1,7 @@
+<section class="portfolio-contact" id="contact" aria-labelledby="contact-title"><div class="contact-inner">
+  <div><span class="section-index">{{ ui.contact }}</span><h2 id="contact-title">{{ ui.name }}</h2></div>
+  <div class="contact-actions">
+    {% if site.portfolio_email != '' %}<a class="button button-light" href="mailto:{{ site.portfolio_email }}">{{ ui.email }}{% include arrow-up-right.html %}</a>{% endif %}
+    <a class="button button-light" href="https://github.com/minfy0-0" aria-label="{{ ui.github_label }}" target="_blank" rel="noreferrer">GitHub{% include arrow-up-right.html %}</a>
+  </div>
+</div></section>

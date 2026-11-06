@@ -1,0 +1,74 @@
+<main id="main">
+{% assign hero_intro = 'From biotechnology<br>to business and computing.' %}
+  {% include assembly-hero.html %}
+  <section class="intro-band" id="about" aria-label="{{ ui.about }}"><div class="intro-inner">
+<p>I study biotechnology as my primary major, business as a second major, and computing as a minor. I start by looking at the bigger picture and considering how technology can serve a business. I want to help people with and without a technical background understand each other and shape the direction of a service together.</p>
+<p>Alongside the finished work, I keep a record of my role and the decisions I made in each project.</p>
+  </div></section>
+  <section class="project-records" id="work" aria-labelledby="work-title" data-project-carousel>
+    {% include project-selector.html %}
+    <div class="project-viewport" data-project-viewport><div class="project-autoplay-sentinel" data-autoplay-sentinel aria-hidden="true"></div><div class="project-track" data-project-track>
+    <article class="project-dossier project-1" id="opic-coach" tabindex="-1"><div class="dossier-inner">
+      <div class="project-feature"><div class="dossier-copy">
+<p class="dossier-meta">OPIc speaking practice / 2026 / Personal project</p>
+<h2>Shared questions. Personal practice records.</h2>
+<div class="dossier-summary"><h3>The work</h3><p>A web app for listening to questions, recording answers, getting feedback, and practicing again. I brought question materials, personal scripts, and practice history into one place.</p></div>
+<div class="project-metrics"><div><strong>166</strong><span>active topics</span></div><div><strong>219</strong><span>active questions</span></div></div>
+<div class="dossier-links"><a href="https://opic-coach-nine.vercel.app" target="_blank" rel="noreferrer">Open the app</a><a class="project-detail" href="{{ '/en/projects/opic-coach/' | relative_url }}">Read the full project</a></div></div>
+<figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>OPIc</span></div><img src="{{ '/assets/img/portfolio/opic-screen.png' | relative_url }}" alt="The OPIc speaking practice app, with its original Korean interface" width="2772" height="1444"></div></div><figcaption>OPIc AI Speaking Practice / Original app screenshot</figcaption></figure></div>
+<div class="dossier-notes"><div class="dossier-note"><h3>My role</h3><p>I defined the requirements, screen flow, and data structure, then implemented them with AI tools. I connected speech synthesis, transcription, and feedback APIs, and revised the app through my own practice sessions.</p></div><div class="dossier-note"><p><strong>I separated access to shared questions from access to personal records.</strong> Guests can start practicing immediately; signed-in users can save their own scripts and history.</p></div></div>
+<p class="dossier-stack">Next.js · React · TypeScript · Supabase<br>166 active topics, 219 active questions / 4 feedback criteria</p>
+    </div></article>
+    <article class="project-dossier project-2" id="drspot" tabindex="-1"><div class="dossier-inner">
+      <div class="project-feature"><div class="dossier-copy">
+<p class="dossier-meta">Dr. Spot skin image analysis / 2025 / Team of three</p>
+<h2>A path for images the detector misses.</h2>
+<div class="dossier-summary"><h3>The work</h3><p>Dr. Spot, an AI service for skin image analysis. Our team of three built the flow from image upload to displaying analysis results.</p></div>
+<div class="project-metrics"><div><strong>86.6%</strong><span>EfficientNet-B4 validation accuracy</span></div><div><strong>0.974</strong><span>Validation AUC</span></div></div>
+<div class="dossier-links"><a class="project-detail" href="{{ '/en/projects/drspot/' | relative_url }}">Read the full project</a><a href="https://github.com/minfy0-0/say_capybara" target="_blank" rel="noreferrer">GitHub</a></div></div>
+<figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Dr. Spot</span></div><img src="{{ '/assets/img/portfolio/drspot-screen.png' | relative_url }}" alt="Dr. Spot skin image analysis results in the original app" loading="lazy" width="1476" height="1128"></div></div><figcaption>Dr. Spot / Original analysis results screen</figcaption></figure></div>
+<div class="dossier-notes"><div class="dossier-note"><h3>My role</h3><p>I worked on YOLOv8 training and validation, model performance and error analysis, inference integration, and the AWS deployment architecture.</p></div><div class="dossier-note"><p><strong>The service needed to handle images with no detected region.</strong> I added a fallback processing path and checked that results reached the user interface.</p></div></div>
+<p class="dossier-stack">Python · PyTorch · SageMaker · ECS Fargate<br>EfficientNet-B4 validation accuracy 86.6% / Validation AUC 0.974</p>
+    </div></article>
+    <article class="project-dossier project-3" id="ask1-pipeline" tabindex="-1"><div class="dossier-inner">
+      <div class="project-feature"><div class="dossier-copy">
+<p class="dossier-meta">ASK1 research data integration / 2026</p>
+<h2>“Not searched” should not look like zero.</h2>
+<div class="dossier-summary"><h3>The work</h3><p>I integrated ASK1 research data from three public APIs using Python and Snowflake, preserving the source records and separating transformation rules from query views.</p></div>
+<div class="project-metrics"><div><strong>4,465</strong><span>RAW records</span></div><div><strong>43</strong><span>offline tests</span></div></div>
+<div class="dossier-links"><a class="project-detail" href="{{ '/en/projects/ask1-pipeline/' | relative_url }}">Read the full project</a></div></div>
+<figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>ASK1</span></div><img src="{{ '/assets/img/portfolio/ask1-screen.jpg' | relative_url }}" alt="Original ASK1 viewer showing collection scope and matching status by compound" width="871" height="1145" loading="lazy"></div></div><figcaption>ASK1 / Collection, transformation, validation, and retrieval</figcaption></figure></div>
+<div class="dossier-notes"><div class="dossier-note"><h3>My role</h3><p>I defined collection, loading, and matching rules, checked omissions and duplicates, and revised the viewer and metric descriptions to make the collection scope clear.</p></div><div class="dossier-note"><p><strong>I distinguished “not searched” from “zero results.”</strong> Clinical-trial matching used Selonsertib as a case study; I did not extend that result to compounds I had not investigated.</p></div></div>
+<p class="dossier-stack">Python · Snowflake · SQL · Streamlit<br>4,465 RAW records / 43 offline tests / 9 of 11 collected Selonsertib trials matched</p>
+    </div></article>
+    <article class="project-dossier project-4" id="seoul-cafe" tabindex="-1"><div class="dossier-inner">
+      <div class="project-feature"><div class="dossier-copy">
+<p class="dossier-meta">Seoul café market analysis / 2024</p>
+<h2>Align the area codes before drawing the charts.</h2>
+<div class="dossier-summary"><h3>The analysis</h3><p>Do more cafés mean stronger demand or tougher competition? I compared café registration records, foot traffic, and closures using a consistent set of geographic units.</p></div>
+<div class="project-metrics"><div><strong>45,035</strong><span>café registration records</span></div><div><strong>424</strong><span>administrative neighborhoods</span></div></div>
+<div class="dossier-links"><a class="project-detail" href="{{ '/en/projects/seoul-cafe/' | relative_url }}">Read the full project</a></div></div>
+<figure class="dossier-screen"><div class="screen-stage"><div class="browser-frame"><div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Power BI</span></div><img src="{{ '/assets/img/portfolio/cafe-screen.png' | relative_url }}" alt="The original Power BI dashboard comparing the Seoul café market and local supply and demand" loading="lazy" width="832" height="948"></div></div><figcaption>Seoul café market and location analysis / Power BI dashboard</figcaption></figure></div>
+<div class="dossier-notes"><div class="dossier-note"><h3>My role</h3><p>I mapped administrative area codes, cleaned the data, designed DAX metrics, and built the Power BI dashboard.</p></div><div class="dossier-note"><p><strong>I aligned the geographic definitions before building the charts.</strong> I mapped different area codes across sources and separated cumulative registrations from shops currently operating.</p></div></div>
+<p class="dossier-stack">Power BI · Power Query · DAX<br>45,035 café registration records / About 184K population records / 424 administrative neighborhoods</p>
+    </div></article>
+    </div></div>
+  </section>
+  {% include skill-blocks.html %}
+  <section class="bench-about" id="experience" aria-labelledby="experience-title"><div class="bench-about-inner">
+    <div class="about-background"><span class="section-index">{{ ui.skills }}</span><h2 id="experience-title">{{ ui.experience }}</h2>
+<p class="about-education">Sangmyung University / Expected graduation: February 2027<br>Biotechnology major / Business double major / Computing minor</p>
+<p class="about-certs"><span>SQLD</span><span>ADsP</span><span>AWS Cloud Practitioner</span></p>
+    </div>
+    <div class="about-experience">
+<dl class="bench-history">
+          <div><dt>2026</dt><dd>OPIc and ASK1<span>A personal web app and public research data integration</span></dd></div>
+          <div><dt>2025</dt><dd>AWS Bio Healthcare AI Academy<span>AWS × Sungkyunkwan University, 865 hours / Dr. Spot, a team of three</span></dd></div>
+          <div><dt>2024</dt><dd>Market analysis and marketing strategy<span>Seoul café market and location analysis / An encouragement award from a business management academic society for a public-data marketing strategy</span></dd></div>
+        </dl>
+<section class="about-content" aria-labelledby="content-title"><h3 id="content-title">I also write and make videos.</h3><p>I have run Naver Blog, Tistory, Instagram, and YouTube channels, using views and traffic sources to revise titles, thumbnails, and structure. One video reached 6,000+ views; the blog recorded 100+ visitors in a day.</p></section>
+    </div></div></section>
+  {% include portfolio-contact.html %}
+</main>
+<footer class="study-footer"><span>{{ ui.name }}</span><span>Portfolio / 2026</span></footer>
+<script src="{{ '/assets/js/assembly-home.js' | relative_url }}" defer></script>
